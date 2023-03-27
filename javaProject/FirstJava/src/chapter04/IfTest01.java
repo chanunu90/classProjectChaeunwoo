@@ -2,6 +2,8 @@ package chapter04;
 
 import java.util.Scanner;
 
+import chapter05.SmartPhone;
+
 public class IfTest01 {
 
 	public static void main(String[] args) {
@@ -19,6 +21,14 @@ public class IfTest01 {
 		}else {
 			System.out.println("탈락");
 		}
+		
+		
+		SmartPhone sp = new SmartPhone();
+		
+		
+
+		
+		
 		
 	}
 
