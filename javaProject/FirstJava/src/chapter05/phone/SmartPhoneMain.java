@@ -6,8 +6,9 @@ public class SmartPhoneMain {
 
 		SmartPhone sp = new SmartPhone();
 		SmartPhone sp1 = new SmartPhone("blue",7.0f,14);
-		SmartPhone sp2 = new SmartPhone("red",8.5f);
+		SmartPhone sp2 = new SmartPhone("gold",8.5f);
 //		SmartPhone sp3 = new SmartPhone();
+		chapter05.phone.Member mb = new chapter05.phone.Member("은우","KING@NAVER.COM",20,"010-7777-5555",sp2);
 		
 		
 		
@@ -27,6 +28,13 @@ public class SmartPhoneMain {
 		System.out.print(sp2.size + "\t");
 		System.out.print(sp2.volume + "\t");
 		
+		System.out.println();
+		printInfo(mb);
+		
+	}
+	
+	static void printInfo(Member member) {
+		member.showData();
 	}
 
 }

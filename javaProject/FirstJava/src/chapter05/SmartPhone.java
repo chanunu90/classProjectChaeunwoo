@@ -9,13 +9,13 @@ public class SmartPhone {
 	
 	
 	//생성자
-	SmartPhone(){
-	
+	public SmartPhone(){
+
 	}
+	
 	SmartPhone( float size ){
 		this.size = size;
 	}
-	
 	
 	
 	//메소드 정의 : 인스턴스 메소드 라고 표현 

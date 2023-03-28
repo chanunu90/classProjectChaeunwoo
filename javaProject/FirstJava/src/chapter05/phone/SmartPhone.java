@@ -2,7 +2,6 @@ package chapter05.phone;
 
 public class SmartPhone {
 	
-	String name = "차은우";
 	String color;
 	int volume;
 	float size;
