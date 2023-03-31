@@ -23,6 +23,7 @@ public class MemberMain {
 	}
 	
 	static void dataPrint(Member member) {
+		
 		//Member member : 매개변수, 참조변수
 		
 		member.showData();
