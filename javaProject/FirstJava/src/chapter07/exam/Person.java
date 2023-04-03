@@ -5,7 +5,6 @@ public class Person {
 	// 이름 주민번호 
 	private String name;
 	private static String personNumber;
-
 	
 	public Person(String name, String personNumber) {
 		this.name = name;
@@ -15,6 +14,7 @@ public class Person {
 	public void printGreeting(){
 		System.out.println("안녕하세요. 저는 " + name + "입니다." + getAge() + "살 입니다.");
 	}
+	
 	
 	// 주민번호를 통해서 나이를 계산해서 반환하는 메소드
 	static int getAge() {
