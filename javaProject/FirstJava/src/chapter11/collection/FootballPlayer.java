@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class FootballPlayer {
+public class FootballPlayer implements Comparable<FootballPlayer>{
 	
 	private String name;
 	private int number;
@@ -62,9 +62,54 @@ public class FootballPlayer {
 	}
 	
 	
+	@Override
+	public int hashCode() {
+		return this.age;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		
+		boolean result = false;
+		
+		if(obj != null && obj instanceof FootballPlayer) {
+			FootballPlayer sp = (FootballPlayer)obj;
+			result = this.team.equals(sp.getTeam()) && this.name.equals(sp.getName()) && this.age == sp.getAge();
+		}
+		
+		return result;
+	}
+	
+	@Override
+	public int compareTo(FootballPlayer o) {
+		//0이면 두수가 같은거임
+		int compare = 0;
+		compare = this.team.compareTo(getTeam());
+		if(compare == 0) {
+			compare = this.name.compareTo(getName());
+			if(compare == 0) {
+				if(compare == 0) {
+					compare = 0;
+				}else {
+					compare = this.age - getAge();
+				}
+			}
+		}
+		
+		
+		return compare;
+	}
+	
+	
+	
+	
+	
 	public void showInfo() {
 		System.out.printf("[%s] %s(등번호%d,%d) \n" , this.team, this.name, this.number, this.age);
 	}
+	
+	
+	
 	
 
 	
