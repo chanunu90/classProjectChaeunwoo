@@ -85,7 +85,7 @@ order by DEPTNO;
 
 --30. 각 부서에 대해 부서번호 이름, 지역 명, 사원 수, 부서내의 모든 사원의 평균 급여를 출력하시오. 평균 급여는 정수로 반올림 하시오. DECODE 사용.
 select decode(deptno,10,'ACCOUNTING' ,20,'RESEARCH',30,'SALE',40,'APERATIONS') AS "부서명" ,
-       '지역명',
+       decode(deptno,10,'워싱턴' ,20,'뉴요크',30,'필라델피아',40,'런던'),
        count(*) as "사원 수",
        sum(sal) as "총급여액",
        round(avg(sal)) as "평균급여액"
