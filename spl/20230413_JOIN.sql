@@ -2,7 +2,6 @@
 --JOIN
 --DECODE(DEPTNO, 10 ,'NEW YORK' , 20 ,'DELLAS', 30,'CHICAGO' , 40 , 'BOSTON') AS DLOC,
 
---짜라라라라라라라라라라라라ㅏ라라라라
 --CREATE TABLE salgrade (
 --grade NUMBER,
 --losal NUMBER,
@@ -56,7 +55,7 @@ SELECT *
 FROM EMP NATURAL JOIN DEPT; --이거 대박이다 이거쓰면 IQUI조인 보다 이게 훨씬 편한거같다.
 
 SELECT *
-FROM EMP JOIN DEPT 
+FROM EMP JOIN DEPT
 USING(DEPTNO); -- 이름이 같은 컬럼을 넣어주면 NATURAL JOIN 같은 역할을 하는데 그냥 NATURAL JOIN 쓰면 될거같다. 비교식도 안써도 된다.
 
 SELECT DEPTNO -- 컬럼이 하나밖에 없기때문에 공통 컬럼도 그냥 써도 된다 네츄럴 조인 이거 사기급이다.
