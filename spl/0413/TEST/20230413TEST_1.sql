@@ -31,6 +31,7 @@ select e.empno, e.ename , nvl(m.ename,'없음') as "관리자 이름"
 from emp e, emp m
 where e.mgr=m.empno(+) 
 order by e.empno desc;
+
 --40. SELF JOIN을 사용하여 지정한 사원의 이름, 부서번호, 지정한 사원과 동일한 부서에서 근무하는 사원을 출력하시오. ( SCOTT )
 select e.ename , e.empno , m.deptno
 from emp e, emp m
