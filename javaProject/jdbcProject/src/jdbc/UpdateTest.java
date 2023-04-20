@@ -28,11 +28,11 @@ public class UpdateTest {
 			String sql = "update dept set dname=?,loc=? where deptno=?";
 			PreparedStatement ps = conn.prepareStatement(sql);
 			
-			ps.setString(1,"디자인팀");
-			ps.setString(2,"제주");
-			ps.setInt(3,50);
+			ps.setString(1,"디자인팀"	);
+			ps.setString(2,	"제주"	);
+			ps.setInt   (3,		50	);
 			
-			int result = ps.executeUpdate(); // INSERT, UPDATE , DELETE
+			int result = ps.executeUpdate(); // INSERT, UPDATE , DELETE -- 처리된 로우의 개수
 			
 			if(result > 0) {
 				System.out.println("데이터가 수정되었습니다.");

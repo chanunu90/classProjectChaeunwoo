@@ -112,3 +112,6 @@ SELECT * FROM EMP;
 
 ROLLBACK;
 
+
+select * from dept;
+

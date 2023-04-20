@@ -58,3 +58,9 @@ select to_char(hiredate , 'yyyy') from emp;
 
 
 
+select * from dept;
+select * from dept where deptno = 70;
+
+
+
+

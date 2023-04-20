@@ -24,16 +24,15 @@ public class chaSelect {
 			String query = "select * from dept where deptno = ?";
 //			String query = "select * from dept";
 			PreparedStatement ps = ct.prepareStatement(query);
-			ps.setInt(1, 40);
-//			ps.executeUpdate(); 나머지 dml은 이거
+			ps.setInt(1, 20);
+            //ps.executeUpdate(); 나머지 dml은 이거
 			//ps.executeQuery(); 셀렉트는 이거
 			
 			ResultSet rs = ps.executeQuery();
 			
 			while(rs.next()) {
 			
-				System.out.println(
-						rs.getInt(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3));
+				System.out.println(	rs.getInt(1) + "\t" + rs.getString(2) + "\t" + rs.getString(3));
 			
 			}
 		} catch (SQLException e) {
