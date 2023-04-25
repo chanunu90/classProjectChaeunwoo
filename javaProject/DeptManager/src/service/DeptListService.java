@@ -15,10 +15,16 @@ public class DeptListService {
 
 	DeptDao dao;
 
-	public DeptListService(DeptDao dao) {
-		this.dao = dao;
+	//기본 생성자
+	private DeptListService() {
+		this.dao = DeptDao.getInstance();
 	}
-
+	private static DeptListService service = new DeptListService();
+	
+	public static DeptListService getInstance() {
+		return service;
+	}
+	
 	public List<Dept> getDeptList() {
 		
 		Connection conn = null;
@@ -60,17 +66,7 @@ public class DeptListService {
 	}
 	
 	
-	public static void main(String[] args) {
-		
-		DeptListService listService = new DeptListService(new DeptDao());
-		
-		List<Dept> list = listService.getDeptList();
-		
-		for(Dept d : list) {
-			System.out.println(d);
-		}
-		
-	}
+
 	
 
 

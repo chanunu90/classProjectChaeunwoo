@@ -8,12 +8,16 @@ import domain.Dept;
 import util.ConnectionProvider;
 
 public class DeptSearchService {
-
 		
 		DeptDao dao;
-		public DeptSearchService() {
-			this.dao = new DeptDao();
+		private DeptSearchService() {
+			this.dao = DeptDao.getInstance();
 			
+		}
+		private static DeptSearchService service = new DeptSearchService();
+		
+		public static DeptSearchService getInstance() {
+			return service;
 		}
 		
 		//검색 번호를 받고 Dept 정보를 저장하고 있는 객체를 반환

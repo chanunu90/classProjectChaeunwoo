@@ -2,15 +2,21 @@ package main;
 
 import java.util.Scanner;
 
+import controller.DeptDeleteController;
 import controller.DeptInsertController;
+import controller.DeptInsertController2;
 import controller.DeptListController;
 import controller.DeptSearchController;
+import controller.DeptUpdateController;
+import controller.FrontController;
 
 public class DeptManagerMain {
 
 	public static Scanner sc = new Scanner(System.in);
 	
 	public static void main(String[] args) {
+		
+		FrontController fc = new FrontController();
 		
 		// Controller:view -> Service -> Dao -> service -> Controller:view
 		
@@ -24,25 +30,42 @@ public class DeptManagerMain {
 			System.out.println("6. 프로그램 종료");
 			
 			int menu = Integer.parseInt(sc.nextLine());
-			
-			switch (menu) {
-			case 1:
-				new DeptListController().getDeptList();
-				break;
-				
-			case 2:
-				new DeptSearchController().searchDept();
-				break;
-				
-			case 3:
-				new DeptInsertController().insertDept();
-				break;
-			case 6:
+			if(menu==6) {
+				System.out.println();
+				System.out.println("프로그램 종료");
 				return;
 			}
+			fc.menu.get(menu).process();
+			
+			
+//			switch (menu) {
+//			case 1:
+//				DeptListController.getInstance().process();
+//				break;
+//				
+//			case 2:
+//				DeptSearchController.getInstance().process();
+//				break;
+//				
+//			case 3:
+//				DeptInsertController2.getInstance().process();
+//				break;
+//				
+//			case 4:
+//				DeptUpdateController.getInstance().process();
+//				break;
+//			
+//			case 5:
+//				DeptDeleteController.getInstance().process();
+//				break;
+//				
+//			case 6:
+//				System.out.println();
+//				System.out.println("프로그램 종료");
+//				return;
+//			}
 
 		}
-		
 		
 	}
 

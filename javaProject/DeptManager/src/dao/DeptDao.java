@@ -11,16 +11,22 @@ import java.util.List;
 import domain.Dept;
 
 public class DeptDao {
-
-	Connection conn;
+	
+	// 여러개가 필요없으니 싱글톤처리를 한다.
+	// 1. 인스턴스 생성 금지 : private 생성자
+	private DeptDao(){ // 딴대서 이클레스 생성못하게 막아버림
+	}
+	// 2. 클래스 내부에서 인스턴스 생성 : private static
+	private static DeptDao dao = new DeptDao();
+	
+	// 3. 다른클래스에서 인스텀스를 얻을 수 있는 메소드 : public static
+	public static DeptDao getInstance() {
+		return dao;
+	}
 	
 	// 1. dept list : List<Dept>
 	public List<Dept> selectByAll(Connection conn){
-		// Connection
-		// 1.메소드 내부에서 Connection을 구하는 방법
-		// 2.Dao 클래스 내부의 인스턴스 변수로 Connection 구하는 방법
-		// 3.매개변수로 Connection 구하는 방법
-		
+
 		// Connection close() 해줘야함
 		// PreparedStatement
 		PreparedStatement pstmt = null;
@@ -133,11 +139,18 @@ public class DeptDao {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
+			
 			try {
-				if(pstmt != null) {
+				
+				if(pstmt!=null) {
 					pstmt.close();
 				}
-			}catch(SQLException e) {
+				if(conn != null) {
+					conn.close();
+				}
+			
+			
+			}catch (SQLException e) {
 				e.printStackTrace();
 			}
 		}
@@ -147,9 +160,131 @@ public class DeptDao {
 	}
 	
 	
-	// 4. 부서 정보 수정
+	public int insertDeptno(Connection conn , Dept dept) {
+		
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		//sql
+		String sql = "insert into dept values ( ? , ? , ? )";
+		try {
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, dept.getDeptno());
+			pstmt.setString(2, dept.getDname());
+			pstmt.setString(3, dept.getLoc());
+			
+			result = pstmt.executeUpdate();
+			
+			if(result > 0) {
+				System.out.println(result + "건의 행이 입력 되었습니다.");
+				
+			}
+			
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			
+			try {
+				
+				if(pstmt!=null) {
+					pstmt.close();
+				}
+				if(conn != null) {
+					conn.close();
+				}
+			
+			
+			}catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return result;
+		
+	}
+	
+	// 4. 부서 정보 수정 : deptno , dname , loc
+	public int updateDeptByDeptno(Connection conn , Dept dept) {
+		
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String sql = "update dept set dname=? , LOC=? WHERE DEPTNO=?";
+		try {
+			conn.setAutoCommit(false);
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dept.getDname());
+			pstmt.setString(2, dept.getLoc());
+			pstmt.setInt(3, dept.getDeptno());
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			
+			try {
+				
+				if(pstmt!=null) {
+					pstmt.close();
+				}
+				if(conn != null) {
+					conn.commit();
+					conn.close();
+				}
+			
+			
+			}catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return result;
+		
+	}
 	
 	// 5. 부서 정보 삭제
+	public int deleteDeptByDeptno(Connection conn , int deptno) {
+		
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String sql = "delete from dept where deptno=?";
+		try {
+			conn.setAutoCommit(false);
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, deptno);
+			
+			result = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			
+			try {
+				
+				if(pstmt!=null) {
+					pstmt.close();
+				}
+				if(conn != null) {
+					conn.close();
+				}
+			
+			
+			}catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return result;
+		
+	}
+	
+	
+	
 	
 	
 	//일단 다오가 제대로 돌아가는지 테스트하는 메인클레스
@@ -170,6 +305,16 @@ public class DeptDao {
 //		Dept dept = dd.selectByDeptno(conn, 10);
 		dd.selectByDeptno(conn, 10);
 		
+		
+//		int unbserRasdasdasd = dd.insertDeptno(conn, new Dept(70 , "TEST" , "Seoul") );
+//		System.out.println("저장 결과 : " + unbserRasdasdasd);
+		
+		
+//		int unbserRasdasdasd = dd.updateDeptByDeptno(conn, new Dept(80 , "asd" , "asd") );
+//		System.out.println("저장 결과 : " + unbserRasdasdasd);
+		
+		int unbserRasdasdasd = dd.deleteDeptByDeptno(conn, 80 );
+		System.out.println("삭제 결과 : " + unbserRasdasdasd);
 	}
 	
 }

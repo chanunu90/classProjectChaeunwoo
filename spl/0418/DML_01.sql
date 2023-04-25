@@ -195,7 +195,7 @@ SELECT * FROM EMP01;
 
 DELETE FROM EMP01 WHERE DEPTNO = (SELECT DEPTNO FROM DEPT02 WHERE DNAME='RESEARCH');
 
-
+select * from emp;
 
 --시퀀스 만들어보아요
 -- SEQUENCE : 연속된 숫자를 생성해주는 객체

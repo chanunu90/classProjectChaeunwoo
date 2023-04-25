@@ -11,7 +11,6 @@ public class chaSelect {
 	public static void main(String[] args) {
 		
 		String dbUrl = "jdbc:oracle:thin:@localhost:1521:xe";
-		//커넥트안에 드라이브 메니저를 이용해서 유알엘 아이디 비번 넣고
 		try {
 			Connection ct = DriverManager.getConnection(dbUrl, "hr" , "tiger");
 			
@@ -22,12 +21,9 @@ public class chaSelect {
 			ct.setAutoCommit(false);
 			
 			String query = "select * from dept where deptno = ?";
-//			String query = "select * from dept";
 			PreparedStatement ps = ct.prepareStatement(query);
 			ps.setInt(1, 20);
             //ps.executeUpdate(); 나머지 dml은 이거
-			//ps.executeQuery(); 셀렉트는 이거
-			
 			ResultSet rs = ps.executeQuery();
 			
 			while(rs.next()) {

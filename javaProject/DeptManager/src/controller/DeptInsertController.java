@@ -3,17 +3,21 @@ package controller;
 import main.DeptManagerMain;
 import service.DeptInsertService2;
 
-public class DeptInsertController {
-
-		
+public class DeptInsertController implements Controller{
 		
 		//Service
 		private DeptInsertService2 insertService;
 	
-		public DeptInsertController() {
+		private DeptInsertController() {
 			this.insertService = new DeptInsertService2();
 		}
-	
+		
+		private static DeptInsertController controller = new DeptInsertController();
+		
+		public static DeptInsertController getInstance() {
+			return controller;
+		}
+		
 		public void insertDept() {
 	
 			// view : 검색할 부서번호 사용자로부터 받는 화면
@@ -26,7 +30,6 @@ public class DeptInsertController {
 			
 			// 결과 View 지정
 			printData(dept);
-
 	
 		}
 		
@@ -58,6 +61,12 @@ public class DeptInsertController {
 			String str = DeptManagerMain.sc.nextLine();
 			
 			return str;
+		}
+
+		@Override
+		public void process() {
+			// TODO Auto-generated method stub
+			
 		}
 		
 	

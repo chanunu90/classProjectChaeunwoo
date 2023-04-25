@@ -12,8 +12,7 @@ public class DeptInsertService2 {
 		
 		DeptDao dao;
 		public DeptInsertService2() {
-			this.dao = new DeptDao();
-			
+			this.dao = DeptDao.getInstance();
 		}
 		
 		//검색 번호를 받고 Dept 정보를 저장하고 있는 객체를 반환
