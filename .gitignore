@@ -2,6 +2,10 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=java,eclipse
 
 ### Eclipse ###
+
+
+
+Servers/
 .metadata
 bin/
 tmp/
