@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<h1> Form Test </h1>
+<form action = "/aa/form/input" method="post">		
+	내용입력<br>
+	<textarea name="content" rows="5" cols="20">안녕하세요!</textarea>	
+	<br>
+	성별 <input type="radio" name="gender" value="male" checked> 남성
+        <input type="radio" name="gender" value="female"> 여성
+    <br>
+    관심사 : <input type = "checkbox" name = "lang" value="java" checked>java
+    	   <input type = "checkbox" name = "lang" value="jsp">jsp
+    	   <input type = "checkbox" name = "lang" value="sql">sql
+    	   <input type = "checkbox" name = "lang" value="html">html
+	<br>
+	태어난 년도 : 
+	<select name="birthYear">
+		<option value="2002">2002</option>
+		<option value="2001">2001</option>
+		<option>2000</option>
+		<option>1999</option>
+		<option>1998</option>
+		<option>1997</option>
+		<option>1996</option>	
+	</select>
+	<br>
+	<input type="number" name="age">
+	<br>
+	생일 : <input type="date" name="birth">
+		
+	<br>
+	<input type="submit">
+</form>
+</body>
+</html>

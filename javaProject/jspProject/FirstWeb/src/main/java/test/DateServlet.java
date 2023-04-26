@@ -1,4 +1,4 @@
-package javaservlet;
+package test;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//@WebServlet({ "/now",	"/test/now"	})
+@WebServlet({ "/now",	"/test/now"	})
 public class DateServlet extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -19,7 +19,6 @@ public class DateServlet extends HttpServlet {
 		response.setContentType("test/html; charset=UTF-8");
 		
 		Date now = new Date();
-		
 		
 		//응답처리 : html
 		PrintWriter out = response.getWriter();
@@ -31,6 +30,7 @@ public class DateServlet extends HttpServlet {
 		out.println("<h3>"+now.toString()+"</h3>");
 		out.println("</body>");
 		out.println("</html>");
+		out.close();
 		
 	}
 
