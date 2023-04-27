@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,11 +8,11 @@
 </head>
 <body>
 
-<h1> Form Test </h1>
-<form action = "/aa/form/input" method="post">
-<!-- <form action = "/aa/form/input" method="post"> -->		
+<h1>Form Test</h1>
+<form action = "<%= request.getContextPath()%>/form/input.jsp" method="post">
+	<!-- <form action = "/aa/form/input" method="post"> -->
 	내용입력<br>
-	<textarea name="content" rows="5" cols="20">안녕하세요!</textarea>	
+	<textarea name="content" rows="5" cols="20">안녕하세요!</textarea>
 	<br>
 	성별 <input type="radio" name="gender" value="male" checked> 남성
         <input type="radio" name="gender" value="female"> 여성
@@ -34,7 +36,6 @@
 	<input type="number" name="age">
 	<br>
 	생일 : <input type="date" name="birth">
-		
 	<br>
 	<input type="submit">
 </form>

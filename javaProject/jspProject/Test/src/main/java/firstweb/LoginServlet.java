@@ -15,7 +15,6 @@ public class LoginServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-
 		String userid = request.getParameter("userid");
 		System.out.println("사용자 입력 id : " + userid);
 		
@@ -28,8 +27,6 @@ public class LoginServlet extends HttpServlet {
 		out.println("사용자 입력 id : " + userid);
 		out.println("사용자 입력 password : " + password);
 		out.close();
-		
-		
 		
 		
 	}

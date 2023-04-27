@@ -19,7 +19,8 @@
 		절대경로(서버 루트 경로 기준) : /web/auth/login.jsp
 		상대경로(현재파일기준) : login.jsp
 	 -->
-	<form action="/aa/auth/login" method="get">
+	<form action="/aa/auth/login.jsp" method=post>
+		
 		<table>
 			<tr>
 				<td>아이디</td>
@@ -33,7 +34,8 @@
 				<td></td>
 				<td><input type ="submit" name ="login"> </td>
 			</tr>
-			
+		
+		
 		</table>
 	</form>
 </div>
