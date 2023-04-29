@@ -22,6 +22,8 @@
 		<input type="submit" name="RESET" value="RESET">
 		<input type="submit" name="REGISTER" value="REGISTER">
 		
+		
+		
 	</form>
 	
 </div>

@@ -9,15 +9,7 @@
 <%@	taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
 <% 	
 	
-/*  
-	List<Todo> lists = new ArrayList();
-    for(Todo list : lists){
-    	 lists.add(new Todo(request.getParameter("number"),request.getParameter("name"),request.getParameter("date")));
-    }
-    lists.add(new Todo("2","차차차","1990-12-06"));
-    lists.add(new Todo("3","조조조","1991-10-20")); 
-*/
-	session.setAttribute("list", request.getAttribute("lists"));
+	session.setAttribute("list", request.getAttribute("todoList"));
 	
 %>  
 	
@@ -35,16 +27,9 @@
 
 <div id="form">	
 	
-<%--
-	<h1> ${list[1].name}</h1>
-	<h1> ${list[1].date}</h1>
-	<h1> ${list}</h1>
---%>
-	<br>
-	
 	<form action="#" method="post">
 		
-		<h2>1~5 까지 반복 (게시판 패이징 넘버)</h2>
+		<h2>리스트 페이지</h2>
 		
 		<c:forEach items="${list}" var="listv" varStatus="stat">
  			
