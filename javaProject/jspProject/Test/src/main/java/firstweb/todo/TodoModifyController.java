@@ -17,14 +17,11 @@ public class TodoModifyController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println("겟으로 시작함");
-		
-		request.setAttribute("title", "Todo 와이어프레임 작성");
+		System.out.println("여기 수정 컨트롤러임");
 		
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/todo/modify.jsp");
 		
 		dispatcher.forward(request, response);
-		
 	}
 
 

@@ -18,9 +18,9 @@
 <body>
 <div id="form">
 	
-	<h1>READ페이지</h1>
+	<h1>수정 페이지</h1>
 	
-	<form action = "/aa/list" method="get">
+	<form method="post">
 		
 		<input type="text" name="number" value = "${number} ">
 		<br>
@@ -28,7 +28,13 @@
 		<br>
 		<input type="date" name="birth" value =  "${date}" >
 		<br>
-		<a href="/aa/modify?number=${number}&name=${name}&date=${date}">Modify/Remove</a> <input type="submit" name="list" value="list">
+		
+		<br>
+		<button type="button" name="list" value="list">
+			<a href="/aa/todo/read.jsp?number=${number}&name=${name}&date=${date}">Modify/Remove</a>
+		</button>
+		<br>
+		<input type="button" name="list" value="list">
 		
 	</form>
 	

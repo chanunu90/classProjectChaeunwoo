@@ -19,7 +19,7 @@
 		<br>
 		<input type="date" name="date">
 		<br>
-		<input type="submit" name="RESET" value="RESET">
+		<button type="reset" name="RESET" >RESET</button>
 		<input type="submit" name="REGISTER" value="REGISTER">
 		
 		

@@ -17,7 +17,7 @@ public class TodoRemoveController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		System.out.println("겟으로 시작함");
+		System.out.println("삭제하는 컨트롤러임");
 		
 		request.setAttribute("title", "Todo 와이어프레임 작성");
 		
