@@ -1,11 +1,11 @@
 package todo;
 public class Todo {
 	
-	private String number;
+	private int number;
 	private String name;
 	private String date;
 	
-	public Todo(String number, String name, String date) {
+	public Todo(int number, String name, String date) {
 		this.number = number;
 		this.name = name;
 		this.date = date;
@@ -15,11 +15,11 @@ public class Todo {
 		
 	}
 	
-	public String getNumber() {
+	public int getNumber() {
 		return number;
 	}
 
-	public void setNumber(String number) {
+	public void setNumber(int number) {
 		this.number = number;
 	}
 
