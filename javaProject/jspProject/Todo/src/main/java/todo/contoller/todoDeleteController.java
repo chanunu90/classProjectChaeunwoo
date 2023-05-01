@@ -14,7 +14,7 @@ import todo.domain.Todo;
 
 @WebServlet("/todo/delete")
 public class todoDeleteController extends HttpServlet {
-       
+        
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		System.out.println("todoDeleteController ...   여기까지 잘들어왔어");
@@ -33,7 +33,6 @@ public class todoDeleteController extends HttpServlet {
 		
 		// redirect ( list )
 		response.sendRedirect("list");
-		
 		
 		
 	}

@@ -17,8 +17,12 @@
 		<li><a href="${pageContext.request.contextPath}/todo/read?no=4">4. 청소</a> 2023-05-04 DONE</li>
 		<li><a href="${pageContext.request.contextPath}/todo/read?no=5">5. 청소</a> 2023-05-05 DONE</li>
 	</ul>
+	
+	<div>
+		${todoList}
+	</div>
 
-	<a href="${pageContext.request.contextPath}/todo/register">Todo Register</a>
+	<a href="${pageContext.request.contextPath}/todo/register">todo Register</a>
 
 </body>
 </html>

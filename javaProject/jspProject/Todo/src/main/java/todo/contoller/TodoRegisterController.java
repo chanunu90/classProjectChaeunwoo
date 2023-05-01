@@ -17,9 +17,7 @@ public class TodoRegisterController extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// todo 입력 폼 화면 출력
-		
 //		System.out.println("TodoRegisterController 겟으로 ");
-//		
 //		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/views/todo/registerForm.jsp");
 //		dispatcher.forward(request, response);
 		
@@ -28,9 +26,8 @@ public class TodoRegisterController extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/todo/registerForm.jsp");
 		dispatcher.forward(request, response);
 	}
-
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		
 		System.out.println("TodoRegisterController 포스트로 받는다. ");
 		
