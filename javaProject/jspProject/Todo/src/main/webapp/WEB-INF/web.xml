@@ -5,4 +5,16 @@
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
+  
+  
+  
+  <servlet>
+  	
+  	<servlet-name>Loader</servlet-name>
+  	<servlet-class>todo.util.Loader</servlet-class>
+  	<load-on-startup>1</load-on-startup>  <!-- 딱한번만 실행 시킨다 라는 의미 -->
+  	
+  </servlet>
+  
+  
 </web-app>

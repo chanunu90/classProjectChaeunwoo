@@ -3,18 +3,18 @@ package todo.domain;
 
 // java Beans 형식으로 정의
 // 데이터베이스 테이블의 컬럼 이름과 변수 이름을 일치시킴.
-public class todoDTO {
+public class TodoDTO {
 	
 	private int tno;
 	private String todo;
 	private String duedate;
 	private boolean finished;
 	
-	public todoDTO() {
+	public TodoDTO() {
 		
 	}
 	
-	public todoDTO(int tno, String todo, String duedate, boolean finished) {
+	public TodoDTO(int tno, String todo, String duedate, boolean finished) {
 		this.tno = tno;
 		this.todo = todo;
 		this.duedate = duedate;

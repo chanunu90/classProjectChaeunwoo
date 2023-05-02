@@ -11,10 +11,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import todo.domain.Todo;
+import todo.service.TodoDeleteService;
+import todo.service.TodoUpdateService;
+import todo.service.TodoViewService;
 
 @WebServlet("/todo/delete")
-public class todoDeleteController extends HttpServlet {
+public class TodoDeleteController extends HttpServlet {
         
+	TodoDeleteService deleteService;
+	
+	public TodoDeleteController() {
+		deleteService = deleteService.getInstance();
+	}
+	
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		System.out.println("todoDeleteController ...   여기까지 잘들어왔어");
@@ -23,8 +33,14 @@ public class todoDeleteController extends HttpServlet {
 		String noStr = request.getParameter("no");
 		int no = Integer.parseInt(noStr);
 		
-		// 서비스로 no 전달
+		// 서비스로 no 전달 -> 삭제 처리
+		int result = deleteService.delete(no);
 		
+		if(result > 0) {
+			System.out.println("수정완료");
+		}else{
+			System.out.println("수정실패");
+		}
 		
 		
 		// 결과
