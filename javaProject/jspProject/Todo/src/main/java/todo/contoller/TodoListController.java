@@ -6,14 +6,17 @@ import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import todo.domain.TodoDTO;
 import todo.service.TodoListService;
 
-@WebServlet(name = "todoListController", urlPatterns = "/todo/list")
+//@WebServlet(name = "todoListController", urlPatterns = "/todo/list")
+@WebServlet("/todo/list")
 public class TodoListController extends HttpServlet {
 
 	TodoListService listService;
@@ -22,11 +25,6 @@ public class TodoListController extends HttpServlet {
 		this.listService = TodoListService.getInstance();
 	}
 	
-	// 화면에 리스트 출력 : get 방식의 요청
-	// 브라우저의 url창 에 입력해서 요청 => get
-	
-	// doGet() 메소드를 오버라이딩
-
 	@Override
 	protected void doGet(
 			HttpServletRequest request, 
@@ -35,24 +33,30 @@ public class TodoListController extends HttpServlet {
 		
 		System.out.println("TodoListController... doGet()...");
 		
-		// 1. 사용자 요청의 분석
-		// 2. Seveice에 요청 -> 응답 데이터 반환
+		HttpSession session = request.getSession();
+		if(session.isNew() || session.getAttribute("loginInfo") == null) {
+			
+			System.out.println("로그인이 필요한 페이지 입니다.");
+			response.sendRedirect("/app/login");
+			
+			return;
+		}
 		
 		List<TodoDTO> list = listService.getList(); 
 		
-		//System.out.println(list);
-		
-		// 3. 응답 데이터 request의 속성에 저장 : view로 데이터 전달
 		request.setAttribute("todoList", list);
 		
-		// 4. view 지정 -> forward
+		// 쿠키설정
+		// 1. Cookie 객체 생성
+		Cookie cookis = new Cookie("uname", "cool");
+		// 2. response.addCookie(쿠키 객체)
+		response.addCookie(cookis);
 		
+		// 3. 응답 데이터 
 		String viewPath = "/WEB-INF/views/todo/list.jsp";
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPath);
 		dispatcher.forward(request, response);
 		
 	}
-	
-	
 
 }

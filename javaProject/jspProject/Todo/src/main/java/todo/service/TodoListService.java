@@ -9,7 +9,7 @@ import todo.domain.TodoDTO;
 import todo.util.ConnectionProvider;
 
 public class TodoListService {
-
+	
 	TodoDAO dao;
 	
 	private TodoListService() {

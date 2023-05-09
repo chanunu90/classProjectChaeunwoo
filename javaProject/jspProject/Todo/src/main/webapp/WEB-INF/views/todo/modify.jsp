@@ -9,10 +9,10 @@
 </head>
 <body>
 
-	<h1>Todo 수정하기</h1>
-	
+	<h1>Todo 수정하기( ${loginInfo.uid} [${loginInfo.uname}] )</h1>
+			
 		<form method="post">
-		
+			
 			번호 : <input tyoe="text" name = "no" value = "${todo.tno}" readonly>
 			할일 : <input type = "text" name = "todo" value = "${todo.todo}" ><br>
 			날짜 : <input type = "date" name = "duedate" value = "${todo.duedate}" ><br>
@@ -21,10 +21,8 @@
 			<input type = "reset"><br>
 			<input type = "submit" value="수정하기"><br>
 			
-
-			
 		</form>
-		
-
+			
+			
 </body>
 </html>

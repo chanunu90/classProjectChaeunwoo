@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import todo.domain.Todo;
 import todo.service.TodoDeleteService;
@@ -24,10 +25,19 @@ public class TodoDeleteController extends HttpServlet {
 		deleteService = deleteService.getInstance();
 	}
 	
-	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		System.out.println("todoDeleteController ...   여기까지 잘들어왔어");
+		
+		HttpSession session = request.getSession();
+		if(session.isNew() || session.getAttribute("loginInfo") == null) {
+			
+			System.out.println("로그인이 필요한 페이지 입니다.");
+			response.sendRedirect("/app/login");
+			
+			return;
+		}
+		
 		
 		// 사용자로 부터 no 받기
 		String noStr = request.getParameter("no");
@@ -42,14 +52,11 @@ public class TodoDeleteController extends HttpServlet {
 			System.out.println("수정실패");
 		}
 		
-		
 		// 결과
 		System.out.println(no + "번 할일이 삭제 되었습니다.");
 		
-		
 		// redirect ( list )
 		response.sendRedirect("list");
-		
 		
 	}
 

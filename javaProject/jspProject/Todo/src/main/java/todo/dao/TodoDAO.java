@@ -50,6 +50,7 @@ public class TodoDAO {
 			
 			// List<TodoDTO> 에 저장 반환
 			while(rs.next()) {
+				
 //				int tno = rs.getInt("tno");
 //				String todo = rs.getString("todo");
 //				String duedate = rs.getString("duedate"); // 2023-05-05
@@ -60,7 +61,6 @@ public class TodoDAO {
 			}
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			
@@ -233,6 +233,7 @@ public class TodoDAO {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
+			
 			//set
 			pstmt.setInt(1, tno);
 			

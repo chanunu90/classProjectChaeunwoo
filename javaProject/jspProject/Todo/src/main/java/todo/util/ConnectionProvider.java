@@ -13,6 +13,8 @@ public class ConnectionProvider {
 		return  DriverManager.getConnection(dbUrl, "himedia" , "tiger");
 	}
 	
+	
+	//테스트
 	public static void main(String[] args) throws SQLException {
 		System.out.println(ConnectionProvider.getConnection());
 	}

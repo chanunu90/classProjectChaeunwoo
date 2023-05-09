@@ -30,9 +30,7 @@ public class TodoViewService {
 		
 		try {
 			conn = ConnectionProvider.getConnection();
-			
 			todo = dao.selectByTno(conn, tno);
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -50,7 +48,5 @@ public class TodoViewService {
 		return todo;
 		
 	}
-	
-
 }
 

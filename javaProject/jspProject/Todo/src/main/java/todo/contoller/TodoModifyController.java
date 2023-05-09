@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import todo.dao.TodoDAO;
 import todo.domain.Todo;
@@ -28,6 +29,18 @@ public class TodoModifyController extends HttpServlet {
 	}
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		System.out.println("TodoModifyController....doGet()...");
+		
+		HttpSession session = request.getSession();
+		if(session.isNew() || session.getAttribute("loginInfo") == null) {
+			
+			System.out.println("로그인이 필요한 페이지 입니다.");
+			response.sendRedirect("/app/login");
+			
+			return;
+		}
+		
 		// 수정 폼 : 이전에 입력했던 데이터가 화면에 출력
 		
 		// no 값을 받고
@@ -54,7 +67,7 @@ public class TodoModifyController extends HttpServlet {
 		System.out.println("TodoModifyController...doPost()...");
 		
 		// 수정 Form에서 전달받고
-		request.setCharacterEncoding("utf-8");
+//		request.setCharacterEncoding("utf-8");앞단에서 필터로 처리해줌
 		
 		String noStr = request.getParameter("no");
 		String todo = request.getParameter("todo");
@@ -73,7 +86,6 @@ public class TodoModifyController extends HttpServlet {
 //				todo, 
 //				duedate, 
 //				complete != null ? complete.equals("on") ? "done": "not" : "not");
-		
 //		System.out.println(newTodo);
 		
 		// 서비스에 요청 : update		

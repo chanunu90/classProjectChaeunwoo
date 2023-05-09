@@ -29,7 +29,7 @@ public class RequestTodo {
 		public void setDuedate(String duedate) {
 			this.duedate = duedate;
 		}
-
+		
 		@Override
 		public String toString() {
 			return "RequestTodo [todo=" + todo + ", duedate=" + duedate + "]";
