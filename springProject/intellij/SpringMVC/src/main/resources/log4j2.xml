@@ -6,14 +6,13 @@
                            pattern="%d{hh:mm:ss} %5p [%c] %m%n"/>
         </Console>
     </Appenders>
-
     <loggers>
 
         <logger name="org.springframework" level="INFO" additivity="false">
             <appender-ref ref="console"/>
         </logger>
 
-        <logger name="com.app" level="INFO" additivity="false">
+        <logger name="com.hi.app" level="INFO" additivity="false">
             <appender-ref ref="console"/>
         </logger>
 
@@ -22,5 +21,4 @@
         </root>
 
     </loggers>
-
 </configuration>

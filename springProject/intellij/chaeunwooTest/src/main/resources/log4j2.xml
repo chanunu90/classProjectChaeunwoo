@@ -13,7 +13,7 @@
             <appender-ref ref="console"/>
         </logger>
 
-        <logger name="com.app" level="INFO" additivity="false">
+        <logger name="com.hi.app" level="INFO" additivity="false">
             <appender-ref ref="console"/>
         </logger>
 
