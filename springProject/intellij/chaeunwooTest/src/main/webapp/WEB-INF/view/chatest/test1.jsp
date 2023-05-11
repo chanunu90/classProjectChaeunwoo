@@ -14,10 +14,20 @@
 
   <h1>test1로 잘들어 와쓰요.</h1>
   <h2>${msg}</h2>
+  <hr>
+  <h2>${uid}</h2>
+  <hr>
+  <h2>${password}</h2>
 
   <form method="post">
 
-      <input type="submit" value="">
+      id <input type="text" name="uid"> <br>
+      pw <input type="text" name="password"> <br>
+
+
+
+
+      <input type="submit" value="포스트버튼">
 
 
   </form>

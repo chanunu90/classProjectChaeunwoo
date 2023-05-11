@@ -5,36 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2110a307-62ed-4d5a-b9a4-48f41cbdc807" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hi/app/IndexController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hi/app/controller/HellowController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hi/app/controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hi/app/controller/SampleController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/root-context.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/spring/servlat-context.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/hello.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/loginForm.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/sample/sample1.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/sample/sample2.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/sample/sample3.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../chaeunwooTest/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../chaeunwooTest/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../chaeunwooTest/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../chaeunwooTest/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../chaeunwooTest/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../chaeunwooTest/src/main/java/com/chacha/chaeunwootest/controller/ChaTestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../chaeunwooTest/src/main/resources/log4j2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../chaeunwooTest/src/main/webapp/WEB-INF/spring/root-context.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../chaeunwooTest/src/main/webapp/WEB-INF/spring/servlat-context.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../chaeunwooTest/src/main/webapp/WEB-INF/view/chatest/test1.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MemberManager/src/main/java/org/example/main/MemberManagerSpringMain2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MemberManager/src/main/java/org/example/main/MemberManagerSpringMain2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MemberManager/src/main/resources/appCtx1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MemberManager/src/main/resources/appCtx1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringEx/src/main/resources/log4j2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringEx/src/main/resources/log4j2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TodoList/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TodoList/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TodoList/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TodoList/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TodoList/src/main/java/com/hi/todo/controller/TodoListController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TodoList/src/main/java/com/hi/todo/indexController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TodoList/src/main/resources/log4j2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TodoList/src/main/webapp/WEB-INF/spring/root-context.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TodoList/src/main/webapp/WEB-INF/spring/servlat-context.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TodoList/src/main/webapp/WEB-INF/views/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../TodoList/src/main/webapp/WEB-INF/views/todo/list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chaeunwooTest/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../chaeunwooTest/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chaeunwooTest/src/main/java/com/chacha/chaeunwootest/controller/ChaTestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../chaeunwooTest/src/main/java/com/chacha/chaeunwootest/controller/ChaTestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../chaeunwooTest/src/main/webapp/WEB-INF/view/chatest/test1.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../chaeunwooTest/src/main/webapp/WEB-INF/view/chatest/test1.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,6 +68,9 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="2Pa7zJ7qIit8Q63BqCI58KENnfu" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -90,23 +79,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/hi/Documents/GitHub/classProjectChaeunwoo/springProject/intellij/SpringMVC&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;6fd232251ba9e66f5bc7137b177b960b&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "C:/Users/hi/Documents/GitHub/classProjectChaeunwoo/springProject/intellij/SpringMVC",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "spring.configuration.checksum": "6fd232251ba9e66f5bc7137b177b960b",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\hi\Documents\GitHub\classProjectChaeunwoo\springProject\intellij\SpringMVC\src\main\webapp\WEB-INF\views\sample" />
@@ -217,7 +206,9 @@
       <workItem from="1683683602484" duration="8358000" />
       <workItem from="1683696619705" duration="9896000" />
       <workItem from="1683709871972" duration="82000" />
-      <workItem from="1683710136149" duration="791000" />
+      <workItem from="1683710136149" duration="792000" />
+      <workItem from="1683759667124" duration="3394000" />
+      <workItem from="1683765887474" duration="1953000" />
     </task>
     <servers />
   </component>
