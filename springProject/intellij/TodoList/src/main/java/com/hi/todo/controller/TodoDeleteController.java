@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @Log4j2
@@ -15,11 +16,18 @@ public class TodoDeleteController {
 
     //post : 데이터 받고 -> 삭제 -> list 로 이동
     @RequestMapping(method = RequestMethod.GET)
-    public String postTodoDelete(){
+    public String postTodoDelete(
+
+            @RequestParam(value = "tno" , required = false) String tno,
+            Model model
+
+
+    ){
 
         log.info("delete 포스트로 잘들어왔어");
 
-
+        log.info("delete 요청번호 : " + tno);
+        model.addAttribute("tno" , tno);
 
         return "redirect:/todo/list";
     }

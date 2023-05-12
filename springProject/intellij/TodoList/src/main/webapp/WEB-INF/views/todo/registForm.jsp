@@ -17,14 +17,11 @@
         todo <input type="text" name="todo" > <br>
         duedate <input type="date" name="duedate" > <br>
 
-        
         <input type="submit" value="등록 포스트">
 
     </form>
 
     <a href="/todo/list">다시 todoList로 돌아간다.</a>
-
-
 
 </body>
 </html>

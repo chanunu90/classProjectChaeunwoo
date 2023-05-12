@@ -12,6 +12,17 @@
 </head>
 <body>
     <h1>${todoList}</h1>
+    <h1>${todoReq}</h1>
+
+    <h2>${todoReq.tno}</h2>
+    <h2>${todoReq.todo}</h2>
+    <h2>${todoReq.duedate}</h2>
+    <h2>${todoReq.finished}</h2>
+
+
+
+
+
     <hr>
     <a href="/todo/read">read 페이지</a>
     <a href="/todo/registForm">등록 페이지</a>
