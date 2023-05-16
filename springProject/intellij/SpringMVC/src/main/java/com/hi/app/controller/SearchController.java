@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @Log4j2
@@ -44,5 +46,31 @@ public class SearchController {
 
         return "search/search1";
     }
+
+    @RequestMapping("/search/main")
+    public String main(){
+
+
+
+        return "search/main";
+    };
+
+    @ModelAttribute("keywords")
+    public String[] getQueryList(){
+        return new String[] { "차은우" , "캉진리" , "킴민짜이" , "쏘오니" } ;
+    }
+
+
+    @ModelAttribute("searchType")
+    public List<String> getSeachType(){
+        List<String> list = new ArrayList<>();
+        list.add("id");
+        list.add("title");
+        list.add("keyword");
+
+        return list;
+    }
+
+
 
 }

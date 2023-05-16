@@ -7,9 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @Log4j2
-public class HellowController
-{
-
+public class HellowController{
     @RequestMapping("/hello")
     public ModelAndView hello(){
         // ModelAndView : 응답할 view 경로, view 공유할 결과 data
@@ -23,5 +21,4 @@ public class HellowController
 
         return mav;
     }
-
 }

@@ -18,22 +18,59 @@
     <!-- /app/resources/css/default.css -->
     <mvc:resources mapping="/css/**" location="/css/"></mvc:resources>
     <!-- /css/default.css -->
+    <!-- /uploadfile/report/이미지.png   -->
+    <mvc:resources mapping="/uploadfile/**" location="/uploadfile/"></mvc:resources>
+
+
+    <!--  인터셉터  위에서 부터 실행된다  -->
+    <!--  회원 로그인 여부 체크 인터셉터  -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/mypage/**" />
+            <mvc:exclude-mapping path="/mypage/help/**"/>
+            <!--헬프 뒤쪽은 인터셉트를 하지않겠다-->
+
+            <bean class="com.hi.app.interceptor.AuthCheckInterceptor" />
+
+        </mvc:interceptor>
+    </mvc:interceptors>
+
 
     <!-- view 설정 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>
-
     <!-- 원래는 이렇게 적어줘야하지만.-->
     <!-- "/WEB-INF/views/member/loginForm.jsp" -->
-
     <!--  prefix/suffix 이걸 해주면  -->
     <!--  member/loginForm 이렇게 가능-->
     <!--  Controller에서 view 지정 => "member/loginForm" -->
 
+    <!-- 파일업로드 처리를 위한 multipartResolver bean 등록 : 완전 필수 필수 -->
+    <bean id="multipartResolver"
+                class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding"><value>utf-8</value></property>
+    </bean>
+
+
     <!-- bean 자동 등록 설정 : @Controller, @Service, @Repository -->
-    <context:component-scan base-package="com.hi.app">
-    </context:component-scan>
+    <context:component-scan base-package="com.hi.app"></context:component-scan>
+
+
+    <!--  formatter 등록 설정     -->
+    <bean id="conversionService"
+          class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+
+        <property name="formatters">
+            <set>
+                <bean class="com.hi.app.formatter.LocalDateFormatter"/>
+            </set>
+        </property>
+
+    </bean>
+    <mvc:annotation-driven conversion-service="conversionService"/>
+
+
 
 </beans>

@@ -23,11 +23,8 @@
     <form method="post">
 
         tno : <input type="text" name="tno" value="1" readonly><br>
-
         todo : <input type="text" name="todo" value="놀기"><br>
-
         duedate : <input type="date" name="duedate" value="2023-12-25"><br>
-
         완료여부 : <input type="checkbox" name="finished" checked><br>
 
         <input type="reset" value="초기화">

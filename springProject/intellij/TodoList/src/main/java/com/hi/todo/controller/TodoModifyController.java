@@ -33,6 +33,7 @@ public class TodoModifyController {
             HttpServletRequest request,
             @ModelAttribute("modd") ModifyTodoRequest todoRequest
     ){
+
         log.info("포스트로 잘들어왔어");
 
         model.addAttribute("read" , "리드페이지");
