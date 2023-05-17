@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.hi.deptspring.ConnectionTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-05-17T06:15:28" hostname="DESKTOP-6RL4QDK" time="0.159">
+  <properties/>
+  <testcase name="selectByDeptnosTest()" classname="com.hi.deptspring.ConnectionTest" time="0.159"/>
+  <system-out><![CDATA[03:15:26  INFO [org.springframework.test.context.support.DefaultTestContextBootstrapper] Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+03:15:26  INFO [org.springframework.test.context.support.DefaultTestContextBootstrapper] Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@10ad20cb, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@7dd712e8, org.springframework.test.context.support.DependencyInjectionTestExecutionListener@2c282004, org.springframework.test.context.support.DirtiesContextTestExecutionListener@22ee2d0, org.springframework.test.context.transaction.TransactionalTestExecutionListener@7bfc3126, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@3e792ce3, org.springframework.test.context.event.EventPublishingTestExecutionListener@53bc1328]
+03:15:27  INFO [com.zaxxer.hikari.HikariDataSource] HikariPool-1 - Starting...
+03:15:27  INFO [com.zaxxer.hikari.pool.HikariPool] HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7dbe2ebf
+03:15:27  INFO [com.zaxxer.hikari.HikariDataSource] HikariPool-1 - Start completed.
+03:15:28  INFO [com.hi.deptspring.ConnectionTest] [DeptDTO(deptno=10, dname=ACCOUNTING, loc=NEW YORK), DeptDTO(deptno=30, dname=SALES, loc=CHICAGO), DeptDTO(deptno=50, dname=개발팀팀, loc=서울), DeptDTO(deptno=53, dname=디자인팀, loc=서울)]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
