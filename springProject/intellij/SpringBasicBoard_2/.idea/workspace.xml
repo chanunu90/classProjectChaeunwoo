@@ -1,17 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ArtifactsWorkspaceSettings">
-    <artifacts-to-build>
-      <artifact name="Gradle : com.hi.deptspring : board-1.0-SNAPSHOT.war (exploded)" />
-    </artifacts-to-build>
-  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="53e5ba39-2166-474d-abb0-11249ac10513" name="Changes" comment="">
+    <list default="true" id="93bf9ade-a84a-4214-9f07-096143c21049" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/gradlew" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/gradlew.bat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/settings.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/HelloServlet.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/controller/BoardDeleteController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/controller/BoardListController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/controller/BoardModifyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/controller/BoardReadController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/controller/BoardWriteController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/controller/member/MemberLoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/controller/member/MemberLogoutController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/controller/member/MemberRegistController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/domain/BoardDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/domain/BoardListPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/domain/BoardSearchOption.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/domain/PageOption.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/domain/RequestModifyRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/domain/RequestRegBoard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/domain/member/MemberDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/domain/member/MemberRegistRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/interceptor/AuthCheckInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/mapper/BoardMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/mapper/MemberMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/service/BoardDeleteService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/service/BoardListService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/service/BoardModifyService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/service/BoardReadService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/service/BoardWriteService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/service/member/MemberLoginService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/java/com/hi/board/service/member/MemberRegistService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/resources/log4j2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/resources/mappers/BoardMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/resources/mappers/MemberMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/WEB-INF/spring/root-context.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/WEB-INF/spring/servlet-context.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/WEB-INF/sql/member_ddl.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/WEB-INF/sql/tbl_board_script.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/WEB-INF/views/board/list.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/WEB-INF/views/board/modify.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/WEB-INF/views/board/read.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/WEB-INF/views/board/write.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/WEB-INF/views/member/loginForm.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/WEB-INF/views/member/regist.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/test/java/com/hi/board/ConnectionTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
@@ -57,63 +107,8 @@
       <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/regist.jsp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/hi/board/ConnectionTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/build.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/settings.gradle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/java/com/hi/board/HelloServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/java/com/hi/board/controller/BoardDeleteController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/java/com/hi/board/controller/BoardListController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/java/com/hi/board/controller/BoardModifyController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/java/com/hi/board/controller/BoardReadController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/java/com/hi/board/controller/BoardWriteController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/java/com/hi/board/controller/member/MemberLoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/java/com/hi/board/controller/member/MemberLogoutController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/java/com/hi/board/controller/member/MemberRegistController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/java/com/hi/board/domain/BoardDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/java/com/hi/board/domain/BoardListPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/java/com/hi/board/domain/BoardSearchOption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/java/com/hi/board/domain/PageOption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/java/com/hi/board/domain/RequestModifyRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/java/com/hi/board/domain/RequestRegBoard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/java/com/hi/board/domain/member/MemberDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/java/com/hi/board/domain/member/MemberRegistRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/java/com/hi/board/interceptor/AuthCheckInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/java/com/hi/board/mapper/BoardMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/java/com/hi/board/mapper/MemberMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/java/com/hi/board/service/BoardDeleteService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/java/com/hi/board/service/BoardListService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/java/com/hi/board/service/BoardModifyService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/java/com/hi/board/service/BoardReadService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/java/com/hi/board/service/BoardWriteService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/java/com/hi/board/service/member/MemberLoginService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/java/com/hi/board/service/member/MemberRegistService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/resources/log4j2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/resources/mappers/BoardMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/resources/mappers/MemberMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/webapp/WEB-INF/spring/root-context.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/webapp/WEB-INF/spring/servlet-context.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/webapp/WEB-INF/sql/member_ddl.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/webapp/WEB-INF/sql/tbl_board_script.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/webapp/WEB-INF/views/board/list.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/webapp/WEB-INF/views/board/modify.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/webapp/WEB-INF/views/board/read.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/webapp/WEB-INF/views/board/write.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/webapp/WEB-INF/views/member/loginForm.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/webapp/WEB-INF/views/member/regist.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/main/webapp/index.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../SpringBasicBoard_2/src/test/java/board/ConnectionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/board/ConnectionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../SpringBasicBoard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringBasicBoard/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,35 +120,6 @@
       <ProjectState />
     </projectState>
   </component>
-  <component name="ExternalProjectsManager">
-    <system id="GRADLE">
-      <state>
-        <task path="$PROJECT_DIR$">
-          <activation />
-        </task>
-        <projects_view>
-          <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="board" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
-            <select />
-          </tree_state>
-        </projects_view>
-      </state>
-    </system>
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="Jsp File" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
@@ -164,7 +130,7 @@
     <option name="FILTER_DEBUG" value="true" />
     <option name="CUSTOM_FILTER" />
   </component>
-  <component name="ProjectId" id="2PxIbfnwSVH1iYsK3dMacLPZzag" />
+  <component name="ProjectId" id="2Q8rMT2i9ZkkorEx5cR2CLqSpyE" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
@@ -174,48 +140,41 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/hi/Documents/GitHub/classProjectChaeunwoo/springProject/intellij/MemberManager",
+    "last_opened_file_path": "C:/Users/hi/Documents/GitHub/classProjectChaeunwoo/springProject/intellij/SpringBasicBoard_2/src/main/webapp",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "spring.configuration.checksum": "41d2fc3d168ea5d5adb07938571b894b",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\hi\Documents\GitHub\classProjectChaeunwoo\springProject\intellij\SpringBasicBoard\src\main\resources\mappers" />
-      <recent name="C:\Users\hi\Documents\GitHub\classProjectChaeunwoo\springProject\intellij\SpringBasicBoard\src\main\webapp\WEB-INF\views\member" />
-      <recent name="C:\Users\hi\Documents\GitHub\classProjectChaeunwoo\springProject\intellij\SpringBasicBoard\src\main\webapp\WEB-INF\views\board" />
-      <recent name="C:\Users\hi\Documents\GitHub\classProjectChaeunwoo\springProject\intellij\SpringBasicBoard\src\main\resources" />
-      <recent name="C:\Users\hi\Documents\GitHub\classProjectChaeunwoo\springProject\intellij\SpringBasicBoard\src\main\webapp\WEB-INF" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.hi.board.controller.mamber" />
-      <recent name="com.hi.board.mapper" />
-      <recent name="com.hi.board.controller" />
-      <recent name="com.hi.board.service" />
-      <recent name="com.hi.board.domain" />
+      <recent name="C:\Users\hi\Documents\GitHub\classProjectChaeunwoo\springProject\intellij\SpringBasicBoard_2\src\main\webapp" />
+      <recent name="C:\Users\hi\Documents\GitHub\classProjectChaeunwoo\springProject\intellij\SpringBasicBoard_2\src\main\java\com\hi" />
+      <recent name="C:\Users\hi\Documents\GitHub\classProjectChaeunwoo\springProject\intellij\SpringBasicBoard_2\src\main\resources" />
+      <recent name="C:\Users\hi\Documents\GitHub\classProjectChaeunwoo\springProject\intellij\SpringBasicBoard_2\src\main\java" />
+      <recent name="C:\Users\hi\Documents\GitHub\classProjectChaeunwoo\springProject\intellij\SpringBasicBoard_2\src\test\java" />
     </key>
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 9.0.74" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.74" ALTERNATIVE_JRE_ENABLED="false">
-      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
-      <option name="UPDATE_CLASSES_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
-        <artifact name="Gradle : com.hi.deptspring : board-1.0-SNAPSHOT.war (exploded)">
+        <artifact name="Gradle : com.hi : board-1.0-SNAPSHOT.war (exploded)">
           <settings>
             <option name="CONTEXT_PATH" value="/" />
           </settings>
         </artifact>
       </deployment>
       <server-settings>
-        <option name="BASE_DIRECTORY_NAME" value="adf72d3b-b460-4a82-8916-d65660c60b82" />
+        <option name="BASE_DIRECTORY_NAME" value="c9845daa-eab2-4825-80ff-942e4cea1651" />
       </server-settings>
       <predefined_log_file enabled="true" id="Tomcat" />
       <predefined_log_file enabled="true" id="Tomcat Catalina" />
@@ -223,7 +182,7 @@
       <predefined_log_file id="Tomcat Host Manager" />
       <predefined_log_file id="Tomcat Localhost Access" />
       <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="54905" />
+        <option name="DEBUG_PORT" value="61783" />
       </RunnerSettings>
       <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
         <option name="USE_ENV_VARIABLES" value="true" />
@@ -288,7 +247,7 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
-          <artifact name="Gradle : com.hi.deptspring : board-1.0-SNAPSHOT.war (exploded)" />
+          <artifact name="Gradle : com.hi : board-1.0-SNAPSHOT.war (exploded)" />
         </option>
       </method>
     </configuration>
@@ -296,33 +255,16 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="53e5ba39-2166-474d-abb0-11249ac10513" name="Changes" comment="" />
-      <created>1684392380536</created>
+      <changelist id="93bf9ade-a84a-4214-9f07-096143c21049" name="Changes" comment="" />
+      <created>1684746003626</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1684392380536</updated>
-      <workItem from="1684392381459" duration="8964000" />
-      <workItem from="1684454404752" duration="28894000" />
-      <workItem from="1684713807543" duration="24779000" />
-      <workItem from="1684745520644" duration="2127000" />
+      <updated>1684746003626</updated>
+      <workItem from="1684746004590" duration="2137000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
 </project>
