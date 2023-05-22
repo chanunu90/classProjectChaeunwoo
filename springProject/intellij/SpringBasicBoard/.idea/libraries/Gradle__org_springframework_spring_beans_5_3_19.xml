@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: org.springframework:spring-beans:5.3.19" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="org.springframework" artifactId="spring-beans" version="5.3.19" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/5.3.19/4bc68c392ed320c9ab5dc439d7f2deb83f03fe76/spring-beans-5.3.19.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-beans/5.3.19/538595499ddeaba8602253dfb193b1f33dbcac53/spring-beans-5.3.19-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
