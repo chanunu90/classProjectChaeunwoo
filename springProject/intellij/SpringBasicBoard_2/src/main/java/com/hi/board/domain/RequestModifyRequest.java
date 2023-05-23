@@ -15,7 +15,10 @@ public class RequestModifyRequest {
     private int bno;
     private String title;
     private String content;
-    private String writer;
+    
+    // 회원 테이블의 정보를 가지고오면서, 수정하면 안되니까 삭제함
+    //private String writer;
+    
     private String oldfile;
     private MultipartFile file;
     private String filename;

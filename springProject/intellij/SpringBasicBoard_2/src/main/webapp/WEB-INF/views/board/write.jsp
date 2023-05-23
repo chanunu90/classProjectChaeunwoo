@@ -18,10 +18,15 @@
     <hr>
     <form method="post" enctype="multipart/form-data">
         <table>
-            <tr>
-                <td>작성자</td>
-                <td><input type="text" name="writer" required value="${loginInfo.idx}"></td>
-            </tr>
+
+<%--            회원만 작성 가능한 게시판으로 변경됨 -> 그래서 삭제--%>
+<%--            <tr>--%>
+<%--                <td>작성자</td>--%>
+<%--                <td><input type="text" name="writer" required value="${loginInfo.idx}"></td>--%>
+<%--            </tr>--%>
+
+
+            <input type="hidden" name="memidx" value="${loginInfo.idx}">
             <tr>
                 <td>제목</td>
                 <td><input type="text" name="title" required></td>
