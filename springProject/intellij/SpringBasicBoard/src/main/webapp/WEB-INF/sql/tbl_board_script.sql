@@ -2,7 +2,6 @@
 -- select 
 select * from tbl_board;
 
-
 select bno, title, content, file, uname as writer , memidx
 from tbl_board b, member m
 where b.memidx = m.idx;
@@ -14,10 +13,6 @@ insert into tbl_board (title, content, writer) values ('게시글 테스트1' , 
 -- insert 멤버 외래키 생김 수정
 insert into tbl_board (title, content, memidx) values ('게시글 테스트1' , '게시글 쓰기 테스트1' , 1);
 -- insert into tbl_board (title, content, memidx) values (#{}, #{}, #{});
-
-
-
-
 
 -- update
 update tbl_board set title='test11', content='test22' , writer='test33' , file='aa,jpg' where bno=8;

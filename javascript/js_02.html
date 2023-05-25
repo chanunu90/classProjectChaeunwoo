@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <script>
+       
+        // 조건문 : if , if~else 
+        // 조건문 중첩 가능
+
+        // 현재 시간에 따라 오전/오후 구분해서 콘솔에 출력
+        const now = new Date();
+        
+        let hour = now.getHours();
+        
+        if(hour > 11){
+            console.log('오후 입니다.')
+        }
+
+        if(hour < 12){
+            console.log('오전 입니다.')
+        }
+
+        if(hour > 11){
+            console.log('오후 입니다.')
+        }else{
+            console.log('오전 입니다.')
+        }
+
+        /////////////////////////////////////////////////
+
+
+        for(let i=0 ; i < 5; i++){
+            // console.log(i);
+        
+            // console.log(i);
+
+            // 난수 생성 : 1~10
+            const r1 = Math.random();
+            const num = Math.floor(r1 * 10) + 1;
+            console.log( num )
+
+            // 사용자로 부터 숫자를 입력 받는다.
+            let userNum = prompt('숫자를 입력해주세요.')
+            
+            console.log('사용자 입력 숫자' , userNum , typeof(userNum))
+
+            let uNum = Number(userNum);
+
+            console.log('사용자 입력 숫자' , uNum , typeof(uNum))
+
+
+            if(!uNum){
+                console.log('숫자 형식이 아니어서 다시 숫자를 입력 받습니다.')
+            }
+
+            if(uNum > num){
+                console.log('낮은 숫자 입니다.')
+            } else if (uNum < num){
+                console.log('높은 숫자 입니다.')
+            } else {
+                console.log('같다. 정답이다')
+                break
+            }
+        }
+
+
+
+    //짝수 홀수 판별
+    let num2 = prompt();
+    switch (num2%2) {
+        case 0:
+            console.log('짝수')
+            break;
+        
+        case 1:
+            console.log('홀수')
+            break;
+    
+        default:
+            break;
+    }
+
+
+    </script>
+
+</head>
+<body>
+
+
+
+</body>
+
+
+
+</html>

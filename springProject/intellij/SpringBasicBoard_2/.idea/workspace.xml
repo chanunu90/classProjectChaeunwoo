@@ -5,19 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93bf9ade-a84a-4214-9f07-096143c21049" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../SpringBasicBoard/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringBasicBoard/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../javascript/js_01.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../javascript/js_01.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/WEB-INF/sql/tbl_board_script.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/WEB-INF/sql/tbl_board_script.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hi/board/domain/BoardDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hi/board/domain/BoardDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hi/board/domain/BoardListPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hi/board/domain/BoardListPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hi/board/domain/RequestModifyRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hi/board/domain/RequestModifyRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hi/board/domain/RequestRegBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hi/board/domain/RequestRegBoard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hi/board/mapper/BoardMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hi/board/mapper/BoardMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/BoardMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/BoardMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/modify.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/modify.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/read.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/read.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/write.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/write.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,6 +164,12 @@
       <workItem from="1684746004590" duration="5274000" />
       <workItem from="1684800594514" duration="12223000" />
       <workItem from="1684827903777" duration="391000" />
+      <workItem from="1684831921977" duration="598000" />
+      <workItem from="1684890363453" duration="210000" />
+      <workItem from="1684901026654" duration="599000" />
+      <workItem from="1684915575919" duration="600000" />
+      <workItem from="1685001379779" duration="72000" />
+      <workItem from="1685004520445" duration="598000" />
     </task>
     <servers />
   </component>
