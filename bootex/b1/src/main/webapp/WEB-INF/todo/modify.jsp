@@ -1,17 +1,17 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <body>
-    
-    <Form>
-        <h1>MODIFY PAGE</h1>
-    </Form>
-    
-
+  <h1>Modify Page</h1>
+  <form action="/todo/modify/33" method="post">
+    <button>Modify</button>
+  </form>
 </body>
 </html>
