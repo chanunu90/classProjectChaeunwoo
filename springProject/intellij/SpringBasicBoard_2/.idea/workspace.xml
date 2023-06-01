@@ -5,9 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93bf9ade-a84a-4214-9f07-096143c21049" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hi/board/controller/ReplyRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hi/board/controller/member/IdCheckController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hi/board/domain/ReplyDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hi/board/mapper/ReplyMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hi/board/service/ReplyInsertService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hi/board/service/ReplyReadService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/hi/board/service/member/MemberIdCheckService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../../javascript/js_01.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../javascript/js_01.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/WEB-INF/sql/tbl_board_script.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../SpringBasicBoard/src/main/webapp/WEB-INF/sql/tbl_board_script.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../javascript/js_document.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../javascript/js_document.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hi/board/mapper/BoardMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hi/board/mapper/BoardMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/hi/board/mapper/MemberMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hi/board/mapper/MemberMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/read.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/read.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/regist.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/regist.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,6 +30,13 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
@@ -41,6 +60,7 @@
   &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/hi/Documents/GitHub/classProjectChaeunwoo/springProject/intellij/SpringBasicBoard_2/src/main/webapp&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -61,6 +81,10 @@
       <recent name="C:\Users\hi\Documents\GitHub\classProjectChaeunwoo\springProject\intellij\SpringBasicBoard_2\src\main\resources" />
       <recent name="C:\Users\hi\Documents\GitHub\classProjectChaeunwoo\springProject\intellij\SpringBasicBoard_2\src\main\java" />
       <recent name="C:\Users\hi\Documents\GitHub\classProjectChaeunwoo\springProject\intellij\SpringBasicBoard_2\src\test\java" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.hi.board.mapper" />
+      <recent name="com.hi.board.service.member" />
     </key>
   </component>
   <component name="RunManager">
@@ -169,7 +193,14 @@
       <workItem from="1684901026654" duration="599000" />
       <workItem from="1684915575919" duration="600000" />
       <workItem from="1685001379779" duration="72000" />
-      <workItem from="1685004520445" duration="598000" />
+      <workItem from="1685004520445" duration="599000" />
+      <workItem from="1685063512829" duration="8000" />
+      <workItem from="1685087746174" duration="1111000" />
+      <workItem from="1685163231788" duration="3333000" />
+      <workItem from="1685408586725" duration="60000" />
+      <workItem from="1685411213623" duration="6000" />
+      <workItem from="1685500612338" duration="13725000" />
+      <workItem from="1685576038378" duration="1293000" />
     </task>
     <servers />
   </component>

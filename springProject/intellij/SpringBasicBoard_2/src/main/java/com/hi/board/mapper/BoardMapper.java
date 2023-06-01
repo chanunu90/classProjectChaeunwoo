@@ -7,10 +7,8 @@ import java.util.List;
 
 @Mapper
 public interface BoardMapper {
-
     //List<BoardDTO> selectList(int startNum, int count);
     // selectList(0, 5)   #{param1} => 0, #{param2} => 5
-
     List<BoardDTO> selectList(PageOption option);
 
     int selectTotalCount(BoardSearchOption searchOption);
