@@ -5,21 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93bf9ade-a84a-4214-9f07-096143c21049" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hi/board/controller/ReplyRestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hi/board/controller/member/IdCheckController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hi/board/domain/ReplyDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hi/board/mapper/ReplyMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hi/board/service/ReplyInsertService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hi/board/service/ReplyReadService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hi/board/service/member/MemberIdCheckService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../javascript/js_01.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../javascript/js_01.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../javascript/js_document.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../../javascript/js_document.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hi/board/mapper/BoardMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hi/board/mapper/BoardMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hi/board/mapper/MemberMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hi/board/mapper/MemberMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/read.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/board/read.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/regist.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/member/regist.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../bootex/b1/src/main/java/org/zerock/b1/B1Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../bootex/b1/src/main/java/org/zerock/b1/B1Application.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,6 +187,7 @@
       <workItem from="1685411213623" duration="6000" />
       <workItem from="1685500612338" duration="13725000" />
       <workItem from="1685576038378" duration="1293000" />
+      <workItem from="1685926662570" duration="69000" />
     </task>
     <servers />
   </component>
