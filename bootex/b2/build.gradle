@@ -23,21 +23,12 @@ dependencies {
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:3.0.2'
 	compileOnly 'org.projectlombok:lombok'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	runtimeOnly 'com.mysql:mysql-connector-j'
+	implementation 'mysql:mysql-connector-java:8.0.33'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	
-    testAnnotationProcessor 'org.projectlombok:lombok'
+
 	testCompileOnly 'org.projectlombok:lombok'
-
-	implementation 'jstl:jstl:1.2'
-  	implementation "org.apache.tomcat.embed:tomcat-embed-jasper"
-
-
-
-
-
-
+	testAnnotationProcessor 'org.projectlombok:lombok'
 }
 
 tasks.named('test') {
