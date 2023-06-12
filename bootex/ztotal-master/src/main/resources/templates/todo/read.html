@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/lteLayout.html}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .btn-chacha {
+      background-color: green;
+      color: #fff;
+    }
+  </style>
+
+</head>
+<body>
+  <div layout:fragment="content">
+    <h1>Read</h1>
+    <ul class="postsDiv">
+
+    </ul>
+
+    <div class="modal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <input type="text" name="title">
+            <input type="text" name="author">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-chacha btnInsert">INSERT</button>
+            <button type="button" class="btn btn-danger btnDelete">DELETE</button>
+            <button type="button" class="btn btn-primary btnModify">MODIFY</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  </div>
+
+  <script layout:fragment="script">
+    const postsDiv = document.querySelector(".postsDiv")
+    const path = "http://localhost:9090/posts"
+    const modalDiv = $(".modal")
+
+    postsDiv.addEventListener("click", e => {
+      e.preventDefault()
+      e.stopPropagation()
+
+      const target = e.target
+      console.log(target)
+
+      const pid = target.getAttribute("data-id")
+
+      console.log(pid)
+
+      getPostOne(pid).then(post => {
+        console.log(post)
+        const {id,title,author} = post
+        // modal의 내용물 변경
+        document.querySelector('.modal-title').innerHTML = id
+        document.querySelector('input[name="title"]').value = title
+        document.querySelector('input[name="author"]').value = author
+
+        modalDiv.modal('show')
+      })
+
+    }, false)
+
+    document.querySelector(".btnDelete").addEventListener("click",(e) => {
+
+        const id = document.querySelector('.modal-title').innerHTML
+        deletePostOne(id).then(result => {
+            console.log(result)
+            modalDiv.modal('hide')
+            getDataDefault()
+        })
+
+    }, false) 
+
+    document.querySelector(".btnInsert").addEventListener("click",(e) => {
+
+        const title_v = document.querySelector('input[name="title"]').value
+        const author_v = document.querySelector('input[name="author"]').value
+
+        const temp = { 
+            "title" :  title_v,
+            "author" :  author_v
+        }
+
+        insertPost(temp).then(result => {
+            console.log(result)
+            modalDiv.modal('hide')
+            getDataDefault()
+        })
+
+    }, false)
+
+    document.querySelector(".btnModify").addEventListener("click",(e) => {
+
+      console.log("asd")
+
+      const id = document.querySelector('.modal-title').innerHTML
+      const title_v = document.querySelector('input[name="title"]').value
+      const author_v = document.querySelector('input[name="author"]').value
+
+      console.log("id"  , id)
+      console.log("title_v"  , title_v)
+      console.log("author_v" , author_v)
+
+        const temp = { 
+            "id" : id,
+            "title" :  title_v,
+            "author" :  author_v
+        }
+          
+        console.log(temp)
+
+        putOne(temp).then(result => {
+            console.log(result)
+            modalDiv.modal('hide')
+            getDataDefault()
+        })
+
+    }, false)
+
+    
+    const getPosts = async() => {  
+      const res = await axios.get(path)
+      return res.data
+    }
+
+
+    const getPostOne = async (id) => {
+      const res = await axios.get(`${path}/${id}`)
+      return res.data
+    }
+
+    const deletePostOne = async(id) => {
+        const res = await axios.delete(`${path}/${id}`)
+        return res.data
+    }
+
+    const insertPost = async(temp) => {
+
+      const res = await axios.post(`${path}`, temp )
+      return res.data
+    }
+
+    const putOne = async(temp) => {
+
+        console.log("temp : " + temp)
+
+        const res = await axios.put(`${path}/${temp.id}`, temp)
+        return res.data
+    }
+
+    function getDataDefault(){  
+        
+        getPosts().then(arr => {
+
+            let str = ""
+            console.log(arr)
+            for(let i = 0; i < arr.length; i++){
+                const {id, title, author} = arr[i]
+                str += `<li data-id=${id}>${title}</li>`
+            }
+            console.log(str)
+            postsDiv.innerHTML = str
+            })
+
+    } 
+
+    getDataDefault()
+    
+
+
+  </script>
+
+</body>
+</html>
