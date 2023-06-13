@@ -13,7 +13,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.zerock.bj2.dto.PageRequestDTO;
+import org.zerock.bj2.dto.PageResponseDTO;
 import org.zerock.bj2.dto.ReplyDTO;
+import org.zerock.bj2.service.ReplyService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -23,37 +26,55 @@ import lombok.extern.log4j.Log4j2;
 @RequiredArgsConstructor
 @RequestMapping("/replies/")
 public class ReplyController {
+
+  public static class DataNotFoundException extends RuntimeException{
     
-    @PostMapping("{tno}/new")
-    public Map<String, Long> register(@PathVariable("tno") Long tno, 
-        @RequestBody ReplyDTO replyDTO ){
-            
-            replyDTO.setTno(tno);
+    public DataNotFoundException(String msg){
+      super(msg);
+    }
+  }
 
-            log.info(replyDTO);
+  private final ReplyService service;
 
-            return Map.of("result", 321L);
-        }
+  @PostMapping("{tno}/new")
+  public Map<String, Long> register(@PathVariable("tno") Long tno, 
+    @RequestBody ReplyDTO replyDTO  ){
 
+    replyDTO.setTno(tno);
+
+    Long rno  = service.register(replyDTO);
+
+    log.info(replyDTO);
     
-    @GetMapping(value = "{tno}/list", produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<ReplyDTO> getReplyList(@PathVariable("tno") Long tno){
+    return Map.of("result", rno);
+  }
+ 
+  @GetMapping(value = "{tno}/list" ,produces = MediaType.APPLICATION_JSON_VALUE )
+  public PageResponseDTO<ReplyDTO> getReplyList(
+    @PathVariable("tno") Long tno, PageRequestDTO pageRequestDTO){
     
-        log.info("TNO : " + tno);
+    log.info("TNO: " + tno);
 
-        List<ReplyDTO> result = IntStream.rangeClosed(1, 10).mapToObj(i ->{
+    return service.getList(tno, pageRequestDTO);
+  }
 
-            return ReplyDTO.builder()
-            .rno((long)i)
-            .tno(tno)
-            .reply("댓글...." + i)
-            .replyer("user00")
-            .replyDate(LocalDate.now())
-            .build();
+  @GetMapping(value ="{rno}",produces = MediaType.APPLICATION_JSON_VALUE)
+  public ReplyDTO getOne(@PathVariable("rno") Long rno){
 
-        }).collect(Collectors.toList());
+    ReplyDTO result =  service.getOne(rno);
 
-        return result;
+    log.info("==================");
+    log.info(result);
+
+    if(result == null){
+      throw new DataNotFoundException("Reply is null");
     }
 
+    return result;
+  }
+
+
+
+
+  
 }

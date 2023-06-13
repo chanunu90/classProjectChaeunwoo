@@ -14,8 +14,14 @@ public class ReplyDTO {
     
     private long rno;
     private long tno;
+    
+    @Builder.Default
+    private long gno = 0L;
+
+    private int step;
+
     private String reply;
     private String replyer;
-    
+
     private LocalDate replyDate;
 }
