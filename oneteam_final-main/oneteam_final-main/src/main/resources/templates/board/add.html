@@ -1,0 +1,108 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/oneTeamLayout.html}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+    </style>
+</head>
+<body>
+
+    <div layout:fragment="content">
+
+        <!-- [[${boardOne.title}]] -->
+        <div>
+        <h1>게시글 등록</h1>
+
+            <table>
+                <tr>                    
+                    <td>NO</td>
+                    <td><input type="text" name="bno" style="width: 500px;" ></td>                    
+                </tr>
+
+                <tr>                    
+                    <td>제목</td>
+                    <td><input type="text" name="title" style="width: 500px;" ></td>                    
+                </tr>
+
+                <tr>                    
+                    <td>내용</td>
+                    <td><input type="textarea" name="content" style="width: 500px;height: 300px;" ></td>                    
+                </tr>
+
+                <tr>                    
+                    <td>작성자</td>
+                    <td><input type="text" name="writer" style="width: 500px;"></td>                    
+                </tr>
+
+
+            </table>
+           
+            <br>            
+            <a href="/board/list">
+                <button type="button" class="btn btn-secondary btnList" style="margin-left: 335px;">LIST</button>
+            </a>
+        </div>
+        
+        <!-- /.card -->
+    
+        <form class="actionForm" action="/board/list" method="post">
+          <input type="hidden" name="title" th:value= "${title}">
+          <input type="hidden" name="content" th:value= "${content}">
+
+
+          <input type="hidden" name="writer" th:value= "${writer}">
+
+        </form>
+    
+        <!-- <script src="/js/pageUtil.js"></script> -->
+      </div>
+ 
+
+</div>
+
+
+
+    <script layout:fragment="script" th:inline="javascript">
+
+        // console.log([[${boardOne.bno}]])
+    
+        const btnAdd = document.querySelector(".btnAdd")
+        const btnList = document.querySelector(".btnList")
+        const actionForm = document.querySelector(".actionForm")
+
+        // const title = document.querySelector("input[name='title']").value;
+        // const content = document.querySelector("input[name='content']").value;
+        // const writer = document.querySelector("input[name='writer']").value;
+
+        btnAdd.addEventListener("click", (e) => {
+
+            const boardAdd = {
+            
+                title:title,
+                content:content,
+                writer:writer
+            
+            }
+
+
+            const url = `/board/add/[[${boardAdd}]]`
+            actionForm.setAttribute("action", url)
+            actionForm.submit();
+
+        })
+
+      
+
+
+
+
+    </script>
+    
+</body>
+</html>

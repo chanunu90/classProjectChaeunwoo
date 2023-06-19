@@ -1,0 +1,157 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/oneTeamLayout.html}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .notStyle {
+            text-decoration: none;
+        }
+
+        
+    </style>
+</head>
+<body>
+
+    <div layout:fragment="content">
+
+        <div class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                <h3>삭제하시겠습니까?</h3>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-info btnOk"  >확인</button>
+               
+                <button type="button" class="btn btn-secondary btnNo" data-dismiss="modal" >취소</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- [[${boardOne.title}]] -->
+        <div>
+        <h1>게시글 읽기</h1>
+
+            <table>
+                <tr>                    
+                    <td>NO</td>
+                    <td><input type="text" name="bno" style="width: 500px;" th:value= "${boardOne.bno}" readonly></td>                    
+                </tr>
+
+                <tr>                    
+                    <td>제목</td>
+                    <td><input type="text" name="title" style="width: 500px;" th:value= "${boardOne.title}" readonly></td>                    
+                </tr>
+
+                <tr>                    
+                    <td>내용</td>
+                    <td><input type="textarea" name="content" style="width: 500px;height: 300px;" th:value= "${boardOne.content}"></td>                    
+                </tr>
+
+                <tr>                    
+                    <td>작성자</td>
+                    <td><input type="text" name="writer" style="width: 500px;" th:value= "${boardOne.writer}" readonly></td>                    
+                </tr>
+
+
+            </table>
+           
+            <br>
+
+            <a href="/board/modify">
+            <button type="button" class="btn btn-primary btnModify">MODIFY</button> 
+            </a>
+            
+            <button type="button" class="btn btn-danger btnDelete">DELETE</button>            
+            
+            <a href="/board/list">
+                <button type="button" class="btn btn-secondary btnList" style="margin-left: 335px;">LIST</button>
+            </a>
+        </div>
+        
+        <!-- /.card -->
+    
+        <form class="actionForm" action="/board/list" method="get">
+          <input type="hidden" name="bno" th:value= "${boardOne.bno}">
+          
+        </form>
+    
+        <!-- <script src="/js/pageUtil.js"></script> -->
+      </div>
+ 
+
+</div>
+
+
+
+    <script layout:fragment="script" th:inline="javascript">
+
+    
+        console.log([[${boardOne.bno}]])
+    
+
+        const btnDelete = document.querySelector(".btnDelete")
+        const btnList = document.querySelector(".btnList")
+        const btnOk = document.querySelector(".btnOk")
+        const btnNo = document.querySelector(".btnNo")
+
+
+        const modal = new bootstrap.Modal(document.querySelector(".modal"))
+
+        btnDelete.addEventListener("click", (e) => {
+            const url = `/board/delete/[[${boardOne.bno}]]`
+
+            
+            
+
+            let value = modal.show();
+
+            
+
+            let bool = 0;
+
+            btnOk.addEventListener("click", (e) => {
+                console.log("btnOK click")
+                bool = 1;
+            })
+            btnNo.addEventListener("click", (e) => {
+                bool = 0;
+            })
+
+            console.log(bool)
+            
+
+            if(bool === 1){
+                return
+            }
+            actionForm.setAttribute("action", url)
+            actionForm.submit();
+
+        })
+
+  
+        
+
+
+        
+
+
+
+
+    </script>
+    
+</body>
+</html>

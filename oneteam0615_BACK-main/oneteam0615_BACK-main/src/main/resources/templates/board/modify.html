@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/oneTeamLayout.html}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .notStyle {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    
+    <div layout:fragment="content">
+        
+        <div class="modal modifyModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                <input name="gno" readonly>
+                <input type="text" name="reply" value="AAA">
+                <input type="text" name="replyer" value="A33">
+                </div>
+                <div class="modal-footer">                
+                <!-- <button type="button" class="btn btn-danger btnDelete">DELETE</button> -->
+                <button type="button" class="btn btn-primary btnModify">MODIFY</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+
+        <div class="modal modalAdd" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                <input name="gno" readonly>
+                <input type="text" name="reply" value="ddd">
+                <input type="text" name="replyer" value="bbb">
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-info btnAdd">ADD</button>
+               
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+
+
+        <h1>Todo List Page</h1>
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Bordered Table</h3>
+            <ul class="float-right">
+                <li>
+                    <button type="button" class="btn btn-secondary btn_add" data-dismiss="modal">글쓰기</button>
+                </li>               
+            </ul>
+          </div>
+          <!-- /.card-header -->
+          <div class="card-body">
+            <table class="table table-bordered boardTable">
+
+              <thead>
+              <tr>
+                <th style="width: 10px">No</th>
+                <th >제목</th>
+                <th style="width: 100px">작성자</th>
+                <th style="width: 100px">날짜</th>
+              </tr>
+              </thead>
+
+              <tbody>
+              <tr th:each="board :${list}" class="boardList">
+                <td th:data-bno="${board.bno}">[[${board.bno}]]</td>
+
+                
+                <td th:data-title="${board.title}">[[${board.title}]]</td>
+                <td th:data-title="${board.writer}">[[${board.writer}]]</td>
+                <td th:data-title="${board.duedate}">[[${board.duedate}]]</td>
+
+                
+              </tr>
+    
+    
+              </tbody>
+            </table>
+          </div>
+          <!-- /.card-body -->
+          <div class="card-footer clearfix">
+
+            <!-- <ul class="float-left">
+                <li>
+                    <button type="button" class="btn btn-secondary btn_add" data-dismiss="modal">글쓰기</button>
+                </li>
+            </ul> -->
+
+            <ul class="pagination pagination-sm m-0 float-right todoUL">
+              <li class="page-item"><a class="page-link" href="10">&laquo;</a></li>
+              <li class="page-item"><a class="page-link" href="11">11</a></li>
+              <li class="page-item"><a class="page-link" href="12">12</a></li>
+              <li class="page-item"><a class="page-link" href="13">13</a></li>
+              <li class="page-item"><a class="page-link" href="21">&raquo;</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- /.card -->
+    
+        <!-- <form class="actionForm" action="/todo/list" method="get">
+          <input type="hidden" name="page" value="3">
+          <input type="hidden" name="size" th:value="${pageRequestDTO.size}">
+        </form> -->
+    
+        <!-- <script src="/js/pageUtil.js"></script> -->
+      </div>
+ 
+
+</div>
+
+    
+
+    <script layout:fragment="script" th:inline="javascript">
+
+        const boardTable = document.querySelector(".boardTable")
+        const btn_add = document.querySelector(".btn_add")
+        const btn_add1 = document.querySelector(".btn_add1")
+
+        const modifyModal = new bootstrap.Modal(document.querySelector(".modifyModal"))
+        const modalAdd = new bootstrap.Modal(document.querySelector(".modalAdd"))
+        
+
+
+        boardTable.addEventListener("click", (e) => {
+
+            console.log(e.target)
+
+            const target = e.target
+            if(!target.getAttribute("data-title")){
+                return
+            }
+            const title = target.getAttribute("data-title")
+
+            if(title){
+                modifyModal.show()
+            }
+           
+        })
+
+        btn_add.addEventListener("click", (e) => {
+
+            console.log("======================================================")
+
+            modalAdd.show()
+            
+
+        })
+
+
+        
+
+
+        
+
+
+
+
+    </script>
+    
+</body>
+</html>
