@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+
+<mapper namespace = "org.chacha.cha1.mappers.Boader">
+
+    <!-- 테스트 -->
+    <select id="getTimn" resultType="string">
+
+        select now()
+
+    </select>
+
+
+    <!-- 조회 -->
+    <select id="select" resultType="Dto">
+
+        select *
+        from tbl_product
+        <!-- <where>
+            <if test="pno != null">AND pno = #{pno} </if>
+        </where> -->
+        limit 0,10
+
+    </select>
+    <!-- 입력 -->
+
+    <!-- 수정 -->
+
+    <!-- 삭제 -->
+    
+
+</mapper>

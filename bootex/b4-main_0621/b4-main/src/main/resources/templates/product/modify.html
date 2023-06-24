@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Product Modify</h1>
+
+    <form>
+        <p>
+            <input type="text" name="pno" th:value="${dto.pno}">
+        </p>
+        <p>
+            <input type="text" name="pname" th:value="${dto.pname}">
+        </p>
+    </form>
+
+    <input class="uploadInput" type="file" name="upload" multiple>
+    <button class="uploadBtn">UPLOAD</button>
+
+
+    <div class="uploadDiv">
+        <ul class="uploadUL">
+
+
+        </ul>
+    </div>
+
+    <style>
+        .uploadUL {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            /* 요소들의 총 넓이가 부모 요소보다 클때 다음줄로 나열 */
+        }
+
+        .uploadUL li {
+            margin: 1em;
+            background-color: gray;
+            padding: 1em;
+            border: 1px solid black;
+            border-radius: 0.2em;
+        }
+    </style>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script th:inline="javascript">
+
+        const pno = [[${ dto.pno }]]
+
+        const uploadBtn = document.querySelector(".uploadBtn")
+        const uploadInput = document.querySelector(".uploadInput")
+
+        const uploadUL = document.querySelector(".uploadUL")
+
+
+
+        const loadImages = () => {
+            axios.get(`http://localhost:8080/product/images/${pno}`)
+                .then(res => {
+                    const arr = res.data
+                    console.log(arr)
+                    const arrObj = arr.map(str => {
+
+                        const uuid = str.substring(0, 36)
+                        const fileName = str.substring(37)
+                        const link = "s_" + str
+                        return { uuid: uuid, fileName: fileName, link: link }
+
+                    })
+                    console.log(arrObj)
+                    showProducts(arrObj)
+                })
+
+        }
+
+        const showProducts = (arr) => {
+
+            let str = ""
+
+            for (const uploadFile of arr) {
+                const { fileName, link, uuid } = uploadFile // 구조 분해 할당
+
+                str += `
+                <li data-uuid='${uuid}' data-fileName='${fileName}'>
+                    <div>
+                        <a href='http://localhost/${uuid}_${fileName}' target="_blank">
+                            <img src = 'http://localhost/${link}'/>
+                        </a>
+                        <p>${fileName}
+                            <button onclick="javascript:removeFile(event,'${uuid}','${fileName}')">X</button>
+                        </p>
+                    </div>        
+                </li>
+                `
+            }
+            uploadUL.innerHTML += str
+        }
+
+
+        const removeFile = (e, uuid, fileName) => {
+
+            e.stopPropagation()
+            e.preventDefault()
+
+            alert("remove file")
+
+            // event 걸려있는 li 태그를 찾는다
+            const liObj = e.target.closest("li")
+
+            console.log(liObj)
+
+            axios.delete(`http://localhost:8080/removeFile/${uuid}_${fileName}`)
+
+            // 목록 삭제
+            liObj.remove()
+
+        }
+
+        uploadBtn.addEventListener("click", e => {
+            e.preventDefault()
+            e.stopPropagation()
+
+            console.dir(uploadInput.files)
+
+            if(!uploadInput.files || uploadInput.files.length === 0 ){
+                return
+            }
+
+            const formData = new FormData()
+
+            for(let i = 0; i < uploadInput.files.length; i++){
+                formData.append("files", uploadInput.files[i])
+            }
+
+            console.dir(formData)
+
+            const header = {headers: {"Content-Type": "multipart/form-data"}}
+
+            axios.post('http://localhost:8080/upload', formData, header)
+            .then(res => {
+                const result = res.data
+                console.log(result)
+                showProducts(result)
+            })
+
+        },false)
+
+
+
+        loadImages()
+
+    </script>
+
+
+</body>
+
+</html>
