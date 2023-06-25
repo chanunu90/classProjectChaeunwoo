@@ -5,184 +5,165 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-
-  <style>
-    .btn-chacha {
-      background-color: green;
-      color: #fff;
-    }
-  </style>
-
+  <title> Document </title>
 </head>
 <body>
   <div layout:fragment="content">
-    <h1>Read</h1>
+    <h1> Read </h1>
+    [[${todo}]]
     <ul class="postsDiv">
 
     </ul>
 
-    <div class="modal" tabindex="-1" role="dialog">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
+    <div class = "modal replyModal" tabindex = "-1" role = "dialog">
+      <div class = "modal-dialog" role = "document">
+        <div class = "modal-content">
+          <div class = "modal-header">
+            <h5 class = "modal-title"> Modal title </h5>
+            <button type = "button" class = "close" data-dismiss = "modal" aria-label = "Close">
+              <span aria-hidden = "true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
-            <input type="text" name="title">
-            <input type="text" name="author">
+          <div class = "modal-body">
+            <input type = "text" name = "gno" readonly>
+            <input type = "text" name = "reply" value="AAAA">
+            <input type = "text" name = "replyer" value="USER00">
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-chacha btnInsert">INSERT</button>
-            <button type="button" class="btn btn-danger btnDelete">DELETE</button>
-            <button type="button" class="btn btn-primary btnModify">MODIFY</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <div class = "modal-footer">
+            <button type="button" class="btn btn-info btnInsert"> ADD </button>
+            <button type="button" class="btn btn-danger btnDelete"> DELETE </button>
+            <button type="button" class="btn btn-primary btnModify"> MODIFY </button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal"> Close </button>
           </div>
         </div>
       </div>
+    </div>
+
+    <div>
+      <ul class = "replyUL">
+
+      </ul>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
   </div>
 
-  <script layout:fragment="script">
-    const postsDiv = document.querySelector(".postsDiv")
-    const path = "http://localhost:9090/posts"
-    const modalDiv = $(".modal")
+  <script layout:fragment = "script" th:inline = "javascript">
+    const replyModal = new bootstrap.Modal( document.querySelector(".replyModal") )
+    const replyUL = document.querySelector(".replyUL")
+    const {tno} = [[${todo}]]
 
-    postsDiv.addEventListener("click", e => {
-      e.preventDefault()
+
+    // 모달관리
+    const gnoInput = document.querySelector("input[name='gno']") 
+    const replyInput = document.querySelector("input[name='reply']")
+    const replyerInput = document.querySelector("input[name='replyer']")
+
+    // 댓글목록을 가져오는 함수.
+    const getRemoteList = async(pageNum) => {
+      const {data} = await axios.get(`http://localhost:8080/replies/${tno}/list?page=${page}`)
+      return data
+    }
+
+    const postRemoteAdd = async(reply)=> {
+      const {data} = await axios.post(`http://localhost:8080/replies/${tno}/new`, reply)
+      return data
+    }
+    
+    let page = 1
+
+    // 비동기 테스트.
+    // getRemoteList(page).then(result => {
+    //   console.log(result)
+    // })
+
+    // 비동기로 등록 테스트.
+    const reply = {tno:tno, reply:"Test Reply", replyer:"r1"}
+
+    postRemoteAdd(reply).then(result => {
+      console.log("성공!!!!!")
+    }).catch(e => {
+      console.log("실패!!!!!")
+      console.log(e.response.data)
+    })
+
+    const loadReply = async(page, goEnd = false) => {
+      
+      const data = await getRemoteList(page)
+
+      console.log("loadReply.....")
+      console.log(data)
+
+      const {list, total} = data
+
+      let str = ""
+
+      for(let i = 0; i < list.length; i++) {
+
+        const {rno, reply, replyer, gno} = list[i]
+
+        str += `<li data-rno=${rno} data-gno=${gno}>${reply} <button>답글</button> </li>`
+      } // end for.
+
+      replyUL.innerHTML = str
+    }
+
+    loadReply(page, true)
+
+    replyUL.addEventListener("click" , (e) => {
+
       e.stopPropagation()
+      e.preventDefault()
 
       const target = e.target
-      console.log(target)
-
-      const pid = target.getAttribute("data-id")
-
-      console.log(pid)
-
-      getPostOne(pid).then(post => {
-        console.log(post)
-        const {id,title,author} = post
-        // modal의 내용물 변경
-        document.querySelector('.modal-title').innerHTML = id
-        document.querySelector('input[name="title"]').value = title
-        document.querySelector('input[name="author"]').value = author
-
-        modalDiv.modal('show')
-      })
-
-    }, false)
-
-    document.querySelector(".btnDelete").addEventListener("click",(e) => {
-
-        const id = document.querySelector('.modal-title').innerHTML
-        deletePostOne(id).then(result => {
-            console.log(result)
-            modalDiv.modal('hide')
-            getDataDefault()
-        })
-
-    }, false) 
-
-    document.querySelector(".btnInsert").addEventListener("click",(e) => {
-
-        const title_v = document.querySelector('input[name="title"]').value
-        const author_v = document.querySelector('input[name="author"]').value
-
-        const temp = { 
-            "title" :  title_v,
-            "author" :  author_v
-        }
-
-        insertPost(temp).then(result => {
-            console.log(result)
-            modalDiv.modal('hide')
-            getDataDefault()
-        })
-
-    }, false)
-
-    document.querySelector(".btnModify").addEventListener("click",(e) => {
-
-      console.log("asd")
-
-      const id = document.querySelector('.modal-title').innerHTML
-      const title_v = document.querySelector('input[name="title"]').value
-      const author_v = document.querySelector('input[name="author"]').value
-
-      console.log("id"  , id)
-      console.log("title_v"  , title_v)
-      console.log("author_v" , author_v)
-
-        const temp = { 
-            "id" : id,
-            "title" :  title_v,
-            "author" :  author_v
-        }
-          
-        console.log(temp)
-
-        putOne(temp).then(result => {
-            console.log(result)
-            modalDiv.modal('hide')
-            getDataDefault()
-        })
-
-    }, false)
-
-    
-    const getPosts = async() => {  
-      const res = await axios.get(path)
-      return res.data
-    }
+      const tag = target.tagName
 
 
-    const getPostOne = async (id) => {
-      const res = await axios.get(`${path}/${id}`)
-      return res.data
-    }
-
-    const deletePostOne = async(id) => {
-        const res = await axios.delete(`${path}/${id}`)
-        return res.data
-    }
-
-    const insertPost = async(temp) => {
-
-      const res = await axios.post(`${path}`, temp )
-      return res.data
-    }
-
-    const putOne = async(temp) => {
-
-        console.log("temp : " + temp)
-
-        const res = await axios.put(`${path}/${temp.id}`, temp)
-        return res.data
-    }
-
-    function getDataDefault(){  
+      if(tag === 'LI'){
         
-        getPosts().then(arr => {
+      } else if(tag === 'BUTTON'){
+      
+        const liObj = target.closest("li")
+        const gno = liObj.getAttribute("data-gno")
 
-            let str = ""
-            console.log(arr)
-            for(let i = 0; i < arr.length; i++){
-                const {id, title, author} = arr[i]
-                str += `<li data-id=${id}>${title}</li>`
-            }
-            console.log(str)
-            postsDiv.innerHTML = str
-            })
+        gnoInput.value = gno
 
-    } 
+        replyModal.show();
 
-    getDataDefault()
+ 
+      }
+
+
+
+      const btnInsert = document.querySelector(".btnInsert").addEventListener("click" , e => {
+
+        const reply = {
+          tno : tno,
+          gno : gnoInput.value,
+          reply : replyInput.value,
+          replyer : replyerInput.value
+        }
+
+
+        console.log(reply);
+
+
+        postRemoteAdd(reply).then(result => {
+          console.log("성공!!!!!")
+          alert
+          loadReply(page, true)
+
+        }).catch(e => {
+          console.log("실패!!!!!")
+          console.log(e.response.data)
+        })
+
+      } , false)
+
+
+    },false)
+
     
 
 

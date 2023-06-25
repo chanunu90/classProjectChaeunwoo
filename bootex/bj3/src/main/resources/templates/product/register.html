@@ -103,8 +103,33 @@
             const liObj = e.target.closest("li")
 
             console.log(liObj)
+            // const param = { fileName : uuid+"_"+fileName }  // 삭제는 파람값 페이로드를 받지못하기에 필요없다.
+
+
+            axios.delete(`http://localhost:8080/removeFile/${uuid}_${fileName}`)
+
             liObj.remove();
 
+
+
+            // window.addEventListener("beforeunload",e => {
+
+            //     e.preventDefault();
+                
+
+            //     e.returnValue = "진짜 나감?";
+            //     alert(e.returnValue)
+
+
+
+            // },false);
+
+
+            window.onbeforeunload = (e) => {
+                alert('aaaaaaaaaaaaaaaaaaaa')
+                console.log('aaaaaaaaaaaaaaaaaaaaaaa')
+                return '';
+            }
 
         }
 

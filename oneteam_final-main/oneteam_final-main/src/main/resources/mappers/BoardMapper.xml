@@ -7,7 +7,7 @@
 
 <mapper namespace = "org.oneteam.oneteam.mappers.BoardMapper">
 
-    <select id = "boardList" resultType = "org.oneteam.oneteam.dto.BoardDTO">
+    <select id = "boardList" resultType = "org.oneteam.oneteam.dto.BoardDTO" >
         select * from tbl_board limit 0 , 10
     </select>
 

@@ -7,7 +7,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 class Bj3ApplicationTests {
 
 	@Test
-	void contextLoads() {
+	void getList() {
+
+		
+
+		
 	}
 
 }
