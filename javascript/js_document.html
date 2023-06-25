@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문서객체 다루기</title>
+    <script>
+
+        // window.onload = function(){
+        //     // *, h1, .클래스, #아이디, 부모 > 자식, 조상 후손, + .. 
+        //     let h1Obj = document.querySelector('h1');
+        //     console.log(h1Obj, typeof h1Obj)
+        // }
+
+        // 이벤트 설정
+        document.addEventListener('DOMContentLoaded', ()=>{
+            
+            let head = document.head
+            console.log(head)
+            let body = document.body
+            console.log(body)
+            let title = document.title
+            console.log(title)
+
+            let sTitle = document.getElementById("title")
+            console.log(sTitle)
+
+             // 문서 객체 생성 : 캐스팅
+             let h1 = document.querySelector('h1')
+            console.log(h1, typeof h1)
+
+            console.log('h1.textContent => ',h1.textContent)
+            h1.textContent = 'HEADER 1'
+            console.log('h1.innerHTML => ', h1.innerHTML)
+            // h1.innerHTML = '<a href="#">안녕</a>'
+
+            h1.style.color = 'yellow'
+            h1.style.backgroundColor = 'blue'
+            h1.style.padding = '10px'
+            h1.style.margin = '0px'
+            h1.style.fontSize = '11px'
+
+            let h3 = document.querySelector('#title')
+            h3.style.fontSize = '32px'
+            h3.style.backgroundColor = 'black'
+            h3.style.color = 'white'
+            
+
+            let headers = document.querySelectorAll('h1')
+            console.log(headers)
+            headers.forEach((item) => {
+                console.log(item.textContent)
+            })
+            
+            
+            // Tag 가 가지는 속성 조작
+            let link = document.querySelector('#linkNaver')
+            let href = link.getAttribute('href')
+            console.log('href', href)
+            link.setAttribute('href', 'https://www.google.com')
+            link.setAttribute('link-index', 1)
+
+            let index = link.getAttribute('link-index')
+            console.log('index',index)
+            
+            // 동적 요소 생성 -> 추가
+            // 동적생성
+            let newElement = document.createElement('h2')
+            newElement.textContent = '동적으로 생성한 h2'
+            newElement.style.backgroundColor = 'yellow'
+            newElement.style.color = 'red'
+
+            // 부모 엘리먼트 생성
+            let wrap = document.querySelector('#wrap')
+
+            // 새로운 요소 추가
+            wrap.appendChild(newElement)
+
+            let newImg = document.createElement('img')
+            newImg.setAttribute('src', 'iamge/강자와자.png')
+            newImg.setAttribute('width', '200')
+            newImg.setAttribute('alt', '에러입니다.')
+            
+            wrap.appendChild(newImg)
+
+            // 엘리먼트의 삭제
+            // 부모 엘리먼트의 removeChild(target Object)
+            let bodyEl = document.body
+
+            // 삭제 대상
+            let removeTarget = document.querySelector('h1.footer')
+
+            // 삭제
+            bodyEl.removeChild(removeTarget)
+
+        })
+
+    </script>
+</head>
+<body>
+
+    <div id="wrap">
+
+    </div>
+
+
+    <h2>
+        <a href="https://www.naver.com" id="linkNaver">네이버(?)</a>
+    </h2>
+
+    <h3 id="title">문서객체 조작</h3>
+
+    <h1><i>안녕하세요</i></h1>
+    <h1>안녕하세요 - 1</h1>
+    <h1>안녕하세요 - 2</h1>
+    <h1>안녕하세요 - 3</h1>
+    <h1 class="footer">안녕하세요 - 4</h1>
+    
+</body>
+</html>

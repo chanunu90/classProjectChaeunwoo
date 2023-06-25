@@ -1,0 +1,82 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- interface 연결되는 mapper XML -->
+<!-- namespace 속성 설정은 필수!!! -> mapper interface의 풀네임 -->
+<mapper namespace="com.hi.board.mapper.BoardMapper">
+
+    <select id="selectList"
+            parameterType="com.hi.board.domain.PageOption"
+            resultType="com.hi.board.domain.BoardDTO">
+        SELECT * FROM project.tbl_board
+        <where>
+            <if test="searchOption.searchType != null and searchOption.keyword != null">
+                <if test="searchOption.searchType == 'title'">
+                    title like concat('%' , #{searchOption.keyword} , '%')
+                </if>
+
+                <if test="searchOption.searchType == 'content'">
+                    content like concat('%' , #{searchOption.keyword} , '%')
+                </if>
+
+                <if test="searchOption.searchType == 'writer'">
+                    writer like concat('%' , #{searchOption.keyword} , '%')
+                </if>
+            </if>
+        </where>
+        order by bno asc limit #{startNum} , #{count}
+    </select>
+
+    <select id="selectTotalCount"
+            parameterType="com.hi.board.domain.BoardSearchOption"
+            resultType="int">
+
+        SELECT count(*) FROM project.tbl_board
+        <where>
+
+            <if test="searchType == 'title'">
+                title like concat('%' , #{keyword} , '%')
+            </if>
+
+            <if test="searchType == 'content'">
+                content like concat('%' , #{keyword} , '%')
+            </if>
+
+            <if test="searchType == 'writer'">
+                writer like concat('%' , #{keyword} , '%')
+            </if>
+
+        </where>
+    </select>
+
+    <select id="selectAll" resultType="com.hi.board.domain.BoardDTO">
+        select * from tbl_board
+    </select>
+
+    <select id="selectByBno" resultType="com.hi.board.domain.BoardDTO">
+        select * from tbl_board where bno=#{bno}
+    </select>
+
+    <!--    file : 파일의 이름을 저장하는 문자열을 저장하는거고 진짜 파일은 서버 더인가의 디렉토리에 저장한다;    -->
+    <insert id="inserBoard" parameterType="com.hi.board.domain.RequestRegBoard">
+
+        insert into tbl_board (title, content, writer, file)
+
+        values (#{title}, #{content}, #{writer} , #{filename})
+
+    </insert>
+
+
+    <update id="updateBoard" parameterType="com.hi.board.domain.RequestModifyRequest">
+        update tbl_board
+        set title=#{title}, content=#{content} , writer=#{writer} , file=#{filename}
+        where bno=#{bno}
+    </update>
+
+    <delete id="deleteBoard">
+        delete from tbl_board where bno=#{bno}
+    </delete>
+
+
+</mapper>

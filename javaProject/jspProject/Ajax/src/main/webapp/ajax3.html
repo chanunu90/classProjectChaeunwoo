@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+
+<script>
+	
+	$(document).ready(function(){
+		
+		
+		// $.ajax(option)
+		$.ajax({
+			url: 'data.html',
+			success: function(response){
+				
+				$('body').append(response)
+				
+			}
+		})
+		
+		
+		
+		
+	})
+	
+
+</script>
+
+
+</head>
+<body>
+
+	<h1>메뉴</h1>
+	<hr>
+
+</body>
+</html>

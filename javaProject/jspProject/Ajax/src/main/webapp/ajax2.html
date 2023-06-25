@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+
+<script>
+	
+	$(document).ready(function(){
+		
+		
+		// $.ajax(option)
+		$.ajax({
+			url: 'parmeter.jsp',
+			type: 'GET', // GET POST PUT DELETE, 생략 가능=> 기본 값 get
+			data: {
+				name : 'tea',
+				price : 3000    // ?name=tea&price=3000
+			} ,  // 요청페이지로 전달하는 파라미터 
+			success: function(response){
+				
+				$('body').append(response)
+				
+			}
+		})
+		
+		
+		
+		
+	})
+	
+
+</script>
+
+
+</head>
+<body>
+
+	<h1>메뉴</h1>
+	
+	<hr>
+	
+	이름
+	
+	<hr>
+	
+	
+
+</body>
+</html>

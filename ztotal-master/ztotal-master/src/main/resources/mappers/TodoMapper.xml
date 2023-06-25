@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.zerock.bj2.mappers.TodoMapper">
+
+<insert id="insert">
+  insert into tbl_todo (title,content,writer,duedate)
+  values (#{title},#{content},#{writer},#{dueDate})
+
+  <selectKey resultType="long" keyProperty="tno" order="AFTER">
+        SELECT LAST_INSERT_ID()
+  </selectKey>
+</insert>
+
+<select id="list" resultType="org.zerock.bj2.dto.TodoDTO">
+select * from tbl_todo 
+where tno > 0 
+order by tno desc 
+limit #{skip}, #{size}
+</select>
+
+<select id="listCount" resultType="long">
+select count(*) 
+from 
+  (select tno from tbl_todo 
+   where tno > 0 limit #{countEnd}) todo
+  
+</select>
+
+</mapper>

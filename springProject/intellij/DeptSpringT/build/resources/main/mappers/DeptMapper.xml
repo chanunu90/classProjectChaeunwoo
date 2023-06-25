@@ -1,0 +1,136 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- interface 연결되는 mapper XML -->
+<!-- namespace 속성 설정은 필수!!! -> mapper interface의 풀네임 -->
+<mapper namespace="com.hi.deptspring.deptspring.mapper.DeptMapper">
+
+    <!-- 매핑의 규칙 정의  -->
+    <resultMap id="deptMap" type="com.hi.deptspring.deptspring.domain.DeptDTO">
+        <id column="deptno" property="deptno"/>
+        <result column="dname" property="dname"/>
+        <result column="loc" property="loc" />
+    </resultMap>
+
+    <select id="selectAll2"
+            resultMap="deptMap"
+    >
+        select * from dept
+    </select>
+    
+    <select id="selectAll"
+            resultType="com.hi.deptspring.deptspring.domain.DeptDTO"
+    >
+        select * from dept
+    </select>
+
+    <select id="selectByDeptno"
+            resultType="com.hi.deptspring.deptspring.domain.DeptDTO"
+    >
+        select * from dept where deptno=#{no}
+    </select>
+
+    <select id="selectByOption"
+            parameterType="com.hi.deptspring.deptspring.domain.DeptSearchOption"
+            resultType="com.hi.deptspring.deptspring.domain.DeptDTO"
+            >
+
+        select * from dept
+
+        <where>
+            <!-- searchType null 여부로 검색 sql 작성 여부 판단 -->
+            <if test="searchType != null and keyword != null">
+
+                <if test="searchType == 'dname'">
+                    <!--dname like concat('%', #{keyword}, '%')-->
+                    <include refid="searchDname"/>
+                </if>
+                <if test="searchType == 'loc'">
+                    <!--loc like concat('%', #{keyword}, '%')-->
+                    <include refid="searchLoc"/>
+                </if>
+                <if test="searchType == 'both'">
+                    <include refid="searchDname"/>
+                    <include refid="searchLoc"/>
+                </if>
+
+
+            </if>
+        </where>
+
+    </select>
+
+    <sql id="searchDname">
+        or dname like concat('%', #{keyword}, '%')
+    </sql>
+
+    <sql id="searchLoc">
+        or loc like concat('%', #{keyword}, '%')
+    </sql>
+
+    
+    <select id="selectByDeptnos"
+            parameterType="list"
+            resultType="com.hi.deptspring.deptspring.domain.DeptDTO"
+    >
+        select * from dept
+        <!--
+        delete from dept
+        update dept set dname='개발팀'
+        -->
+
+        <where>
+            <if test="list != null and list.size != 0">
+                deptno in
+                <foreach collection="list"
+                         item="item"
+                         index="index"
+                         separator=","
+                         open="("
+                         close=")">
+                    #{item}
+                </foreach>
+
+            </if>
+        </where>
+
+    </select>
+    
+    
+
+
+
+
+
+
+
+    <insert id="insertDept"
+            parameterType="com.hi.deptspring.deptspring.domain.DeptRegistRequest">
+        insert into dept (dname, loc) values (#{dname}, #{loc})
+    </insert>
+
+
+
+    <insert id="insertDept2"
+            parameterType="com.hi.deptspring.deptspring.domain.DeptDTO"
+            useGeneratedKeys="true"
+            keyProperty="deptno"
+    >
+        insert into dept (dname, loc) values (#{dname}, #{loc})
+    </insert>
+
+
+    <update id="updateDept"
+            parameterType="com.hi.deptspring.deptspring.domain.DeptDTO">
+        update dept set dname=#{dname}, loc=#{loc} where deptno=#{deptno}
+    </update>
+
+    <delete id="deleteDept">
+        delete from dept where deptno=#{no}
+    </delete>
+
+
+    
+    
+</mapper>
