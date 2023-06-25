@@ -13,6 +13,6 @@ public class SampleController {
 
     @GetMapping({"/hello","/list"})
     public void hello(){
-        log.info("sample/hello..................");
+        log.info("sample/ hello..................");
     }
 }
