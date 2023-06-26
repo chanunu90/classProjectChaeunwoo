@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/oneTeamLayout.html}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+<body>
+
+    <div layout:fragment="content">
+
+        [[${replyList}]]
+
+        <div class="modal modalDelete" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                <h3>삭제하시겠습니까?</h3>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-info btnOk"  >확인</button>
+               
+                <button type="button" class="btn btn-secondary btnNo" data-dismiss="modal" >취소</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="modal modalReplyModify" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title">댓글수정창</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <table>
+
+                    <tr>                    
+                        <td>NO.</td>
+                        <td><input type="text" name="modifyRno" style="width: 300px;" readonly></td>                    
+                    </tr>
+
+                    <tr>                    
+                        <td>내용</td>
+                        <td><input type="textarea" name="modifyReply" style="width: 300px;"></td>                    
+                    </tr>
+    
+                    <tr>                    
+                        <td>작성자</td>
+                        <td><input type="text" name="modifyReplyer" style="width: 300px;"></td>                    
+                    </tr>
+
+
+
+
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info btnOkModify"  >확인</button>
+                    <button type="button" class="btn btn-secondary btnNo" data-dismiss="modal" >취소</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+
+        <div class="modal modalReply" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title">댓글등록창</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <table>
+                    <tr>                    
+                        <td>제목</td>
+                        <td><input type="text" name="title" style="width: 300px;"></td>                    
+                    </tr>
+    
+                    <tr>                    
+                        <td>내용</td>
+                        <td><input type="textarea" name="content" style="width: 300px;height: 300px;"></td>                    
+                    </tr>
+    
+                    <tr>                    
+                        <td>작성자</td>
+                        <td><input type="text" name="writer" style="width: 300px;"></td>                    
+                    </tr>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-info btnOk"  >확인</button>
+               
+                <button type="button" class="btn btn-secondary btnNo" data-dismiss="modal" >취소</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- [[${boardOne.title}]] -->
+        <div>
+        <h1>게시글 읽기</h1>
+
+            <table>
+                <tr>                    
+                    <td>NO</td>
+                    <td><input type="text" name="bno" style="width: 500px;" th:value= "${boardOne.bno}" readonly></td>                    
+                </tr>
+
+                <tr>                    
+                    <td>제목</td>
+                    <td><input type="text" name="title" style="width: 500px;" th:value= "${boardOne.title}" readonly></td>                    
+                </tr>
+
+                <tr>                    
+                    <td>내용</td>
+                    <td><input type="textarea" name="content" style="width: 500px;height: 300px;" th:value= "${boardOne.content}"></td>                    
+                </tr>
+
+                <tr>                    
+                    <td>작성자</td>
+                    <td><input type="text" name="writer" style="width: 500px;" th:value= "${boardOne.writer}" readonly></td>                    
+                </tr>
+
+
+            </table>
+           
+            <br>
+
+            <a href="/board/modify">
+            <button type="button" class="btn btn-primary btnModify">MODIFY</button> 
+            </a>
+            
+            <button type="button" class="btn btn-danger btnDelete">DELETE</button>            
+            
+            <a href="/board/list">
+                <button type="button" class="btn btn-secondary btnList" style="margin-left: 335px;">LIST</button>
+            </a>
+
+            <br>
+            <hr>
+            <button type="button" class="btn btn-secondary btnReply">댓글등록</button>
+        </div>
+        
+        <!-- /.card -->
+
+        <!-- 댓글목록 출력 -->
+        
+        <div>
+ 
+
+            <ul class="replyUL">
+
+            </ul>
+
+        </div>
+
+        <form class="actionForm" action="/board/list" method="post">
+          <input type="hidden" name="bno" th:value= "${boardOne.bno}">
+          
+        </form>
+
+    
+        <!-- <script src="/js/pageUtil.js"></script> -->
+      </div>
+ 
+
+
+
+</div>
+
+
+    <script layout:fragment="script" th:inline="javascript">
+
+    
+        console.log([[${boardOne.bno}]])
+    
+        const bno = [[${boardOne.bno}]]
+
+        const btnDelete = document.querySelector(".btnDelete")
+        const btnList = document.querySelector(".btnList")
+        const btnOk = document.querySelector(".btnOk")
+        const btnNo = document.querySelector(".btnNo")
+        // const btnRepliesModify = document.querySelector(".btnRepliesModify")
+        const btnOkModify = document.querySelector(".btnOkModify")
+
+        const replyUL = document.querySelector(".replyUL")
+        
+        const btnReply = document.querySelector(".btnReply")
+
+        const actionForm = document.querySelector(".actionForm")
+
+        const modifyRno = document.querySelector("input[name='modifyRno']")
+        const modifyReply = document.querySelector("input[name='modifyReply']")
+        const modifyReplyer = document.querySelector("input[name='modifyReplyer']")
+
+
+
+        const modal = new bootstrap.Modal(document.querySelector(".modalDelete"))
+        const modalReply = new bootstrap.Modal(document.querySelector(".modalReply"))
+        const modalReplyModify = new bootstrap.Modal(document.querySelector(".modalReplyModify"))
+        
+        //수정 모달 버튼
+        replyUL.addEventListener("click", (e) => {
+            modalReplyModify.show();
+        })
+
+        btnDelete.addEventListener("click", (e) => {
+
+            modal.show();
+
+        })
+
+        btnOkModify.addEventListener("click", (e) => {
+
+            const modifyRno = document.querySelector("input[name='modifyRno']")
+            const modifyReply = document.querySelector("input[name='modifyReply']")
+            const modifyReplyer = document.querySelector("input[name='modifyReplyer']")
+
+            console.log(modifyRno.value)
+            console.log(modifyReply.value)
+            console.log(modifyReplyer.value)
+
+            const replyList = { rno:modifyRno, reply:modifyReply, replyer:modifyReplyer}
+
+            getRemoteUpdate(replyList)
+
+            console.log(replyList)
+
+            // loadReplyData()
+            
+
+        }) 
+        
+        let bool;
+        
+        btnOk.addEventListener("click", (e) => {
+
+            const url = `/board/delete/[[${boardOne.bno}]]`
+            
+            console.log(url)
+            console.log("btnOK click")
+
+            actionForm.setAttribute("action", url)
+            actionForm.submit();
+
+            console.log("btnOK click2")
+            modal.hide();
+        })
+
+        btnNo.addEventListener("click", (e) => {
+            console.log("btnNo click")
+            return
+        })
+
+        btnReply.addEventListener("click", (e) => {
+            console.log("btnReply click")
+            modalReply.show();
+
+        })
+
+
+       
+
+        // 댓글 목록
+        const getRemoteList = async () => {
+            const res = await axios.get(`http://localhost:8080/replies/list/${bno}`)
+            console.log(res)
+            return res.data
+        }
+
+        // 댓글 수정
+        const getRemoteUpdate = async (replyList) => {
+            console.log(replyList)
+            const res = await axios.post(`http://localhost:8080/replies/modify/${bno}`, replyList)
+            console.log(res)
+            return res.data
+        }
+
+        function loadReplyData () {
+        
+            getRemoteList().then(arr => {
+            console.log("then result---------------")
+            console.log(arr)
+
+            let str = ""
+
+            if(!arr){
+                return
+            }
+
+            for(let i = 0; i < arr.length; i++){
+                const {rno,bno,reply,replyer} = arr[i]
+
+                str += `<li data-rno= ${rno} data-reply= ${reply} data-replyer= ${replyer}> ${reply} // ${replyer} <button>수정</button> </li>`
+            }
+
+            replyUL.innerHTML = str
+
+            })
+            
+        }
+
+        loadReplyData()
+        
+
+
+        replyUL.addEventListener("click", (e) => {
+            e.stopPropagation
+            e.preventDefault
+
+            const target = e.target
+
+            console.dir(target)
+
+            const tag = target.tagName
+
+            if(tag == 'LI'){
+                
+            }else if(tag === 'BUTTON'){
+            
+                const liObj = target.closest("li")
+                const rno = liObj.getAttribute("data-rno")
+                const reply = liObj.getAttribute("data-reply")
+                const replyer = liObj.getAttribute("data-replyer")
+
+
+                modifyRno.value = rno
+                modifyReply.value = reply
+                modifyReplyer.value = replyer
+
+                replyModal.show()
+
+            }
+
+        }, false)
+
+
+    </script>
+    
+</body>
+</html>

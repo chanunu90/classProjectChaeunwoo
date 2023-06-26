@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/oneTeamLayout.html}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .notStyle {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div layout:fragment="content">
+
+        <div class="modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                <h3>삭제하시겠습니까?</h3>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-info btnOk"  >확인</button>
+               
+                <button type="button" class="btn btn-secondary btnNo" data-dismiss="modal" >취소</button>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <!-- [[${boardOne.title}]] -->
+        <h1>READ Page</h1>
+            NO .<input type="text" name="bno" th:value= "${boardOne.bno}" readonly> 
+            <br>
+            제목<input type="text" name="title" th:value= "${boardOne.title}" readonly>
+            <br>
+            내용<input type="textarea" name="content" th:value= "${boardOne.content}" readonly>
+            <br>
+            작성자<input type="text" name="writer" th:value= "${boardOne.writer}" readonly>
+            <button type="button" class="btn btn-danger btnDelete">DELETE</button> 
+        </div>
+        
+        <!-- /.card -->
+    
+        <form class="actionForm" action="/todo/list" method="get">
+          <input type="hidden" name="bno" th:value= "${boardOne.bno}">
+          
+        </form>
+    
+        <!-- <script src="/js/pageUtil.js"></script> -->
+      </div>
+ 
+
+</div>
+
+
+
+    <script layout:fragment="script" th:inline="javascript">
+
+    
+        console.log([[${boardOne.bno}]])
+    
+
+        const btnDelete = document.querySelector(".btnDelete")
+        const btnOk = document.querySelector(".btnOk")
+        const btnNo = document.querySelector(".btnNo")
+
+
+        const modal = new bootstrap.Modal(document.querySelector(".modal"))
+
+        btnDelete.addEventListener("click", (e) => {
+            const url = `/board/delete/[[${boardOne.bno}]]`
+
+            
+            
+
+            let value = modal.show();
+
+            
+
+            let bool = 0;
+
+            btnOk.addEventListener("click", (e) => {
+                console.log("btnOK click")
+                bool = 1;
+            })
+            btnNo.addEventListener("click", (e) => {
+                bool = 0;
+            })
+
+            console.log(bool)
+            
+
+            if(bool === 1){
+                return
+            }
+            actionForm.setAttribute("action", url)
+            actionForm.submit();
+
+        })
+        
+
+
+        
+
+
+
+
+    </script>
+    
+</body>
+</html>
