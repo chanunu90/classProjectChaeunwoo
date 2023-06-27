@@ -15,10 +15,10 @@
 </insert>
 
 <select id="list" resultType="org.zerock.bj2.dto.TodoDTO">
-  select * from tbl_todo 
-  where tno > 0 
-  order by tno desc 
-  limit #{skip}, #{size}
+select * from tbl_todo 
+where tno > 0 
+order by tno desc 
+limit #{skip}, #{size}
 </select>
 
 <select id="listCount" resultType="long">
