@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+
+.productList{
+  background-color: #61dafb;
+  list-style: none;
+  border: 1px solid brown;
+  display: flex;
+}
+
+.productList li{
+
+  margin: 3em;
+  background-color: yellow;
+  padding: 2em;
+  color : #282c34;
+
+}
