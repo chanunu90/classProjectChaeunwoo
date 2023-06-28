@@ -2,12 +2,10 @@ package org.zerock.bj2.dto;
 
 import java.util.List;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
 @Data
-
 public class PageResponseDTO<E> {
   
   private List<E> list;

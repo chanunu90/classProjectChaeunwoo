@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/lteLayout.html}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Document </title>
+</head>
+<body>
+  <div layout:fragment="content">
+    <h1> Read </h1>
+    [[${todo}]]
+    <ul class="postsDiv">
+
+    </ul>
+
+    <div class = "modal replyModal" tabindex = "-1" role = "dialog">
+      <div class = "modal-dialog" role = "document">
+        <div class = "modal-content">
+          <div class = "modal-header">
+            <h5 class = "modal-title"> Modal title </h5>
+            <button type = "button" class = "close" data-dismiss = "modal" aria-label = "Close">
+              <span aria-hidden = "true">&times;</span>
+            </button>
+          </div>
+          <div class = "modal-body">
+            <input type = "text" name = "gno" readonly>
+            <input type = "text" name = "reply" value="AAAA">
+            <input type = "text" name = "replyer" value="USER00">
+          </div>
+          <div class = "modal-footer">
+            <button type="button" class="btn btn-info btnInsert"> ADD </button>
+            <button type="button" class="btn btn-danger btnDelete"> DELETE </button>
+            <button type="button" class="btn btn-primary btnModify"> MODIFY </button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal"> Close </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <ul class = "replyUL">
+
+      </ul>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+  </div>
+
+  <script layout:fragment = "script" th:inline = "javascript">
+    const replyModal = new bootstrap.Modal( document.querySelector(".replyModal") )
+    const replyUL = document.querySelector(".replyUL")
+    const {tno} = [[${todo}]]
+
+
+    // 모달관리
+    const gnoInput = document.querySelector("input[name='gno']") 
+    const replyInput = document.querySelector("input[name='reply']")
+    const replyerInput = document.querySelector("input[name='replyer']")
+
+    // 댓글목록을 가져오는 함수.
+    const getRemoteList = async(pageNum) => {
+      const {data} = await axios.get(`http://localhost:8080/replies/${tno}/list?page=${page}`)
+      return data
+    }
+
+    const postRemoteAdd = async(reply)=> {
+      const {data} = await axios.post(`http://localhost:8080/replies/${tno}/new`, reply)
+      return data
+    }
+    
+    let page = 1
+
+    // 비동기 테스트.
+    // getRemoteList(page).then(result => {
+    //   console.log(result)
+    // })
+
+    // 비동기로 등록 테스트.
+    const reply = {tno:tno, reply:"Test Reply", replyer:"r1"}
+
+    postRemoteAdd(reply).then(result => {
+      console.log("성공!!!!!")
+    }).catch(e => {
+      console.log("실패!!!!!")
+      console.log(e.response.data)
+    })
+
+    const loadReply = async(page, goEnd = false) => {
+      
+      const data = await getRemoteList(page)
+
+      console.log("loadReply.....")
+      console.log(data)
+
+      const {list, total} = data
+
+      let str = ""
+
+      for(let i = 0; i < list.length; i++) {
+
+        const {rno, reply, replyer, gno} = list[i]
+
+        str += `<li data-rno=${rno} data-gno=${gno}>${reply} <button>답글</button> </li>`
+      } // end for.
+
+      replyUL.innerHTML = str
+    }
+
+    loadReply(page, true)
+
+    replyUL.addEventListener("click" , (e) => {
+
+      e.stopPropagation()
+      e.preventDefault()
+
+      const target = e.target
+      const tag = target.tagName
+
+
+      if(tag === 'LI'){
+        
+      } else if(tag === 'BUTTON'){
+      
+        const liObj = target.closest("li")
+        const gno = liObj.getAttribute("data-gno")
+
+        gnoInput.value = gno
+
+        replyModal.show();
+
+ 
+      }
+
+
+
+      const btnInsert = document.querySelector(".btnInsert").addEventListener("click" , e => {
+
+        const reply = {
+          tno : tno,
+          gno : gnoInput.value,
+          reply : replyInput.value,
+          replyer : replyerInput.value
+        }
+
+
+        console.log(reply);
+
+
+        postRemoteAdd(reply).then(result => {
+          console.log("성공!!!!!")
+          alert
+          loadReply(page, true)
+
+        }).catch(e => {
+          console.log("실패!!!!!")
+          console.log(e.response.data)
+        })
+
+      } , false)
+
+
+    },false)
+
+    
+
+
+  </script>
+
+</body>
+</html>
