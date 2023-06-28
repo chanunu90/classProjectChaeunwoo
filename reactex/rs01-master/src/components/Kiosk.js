@@ -20,9 +20,7 @@ const getTotal = (arr) => {
         return 0
     }
 
-    const resum = arr.reduce((actual,current) => {
-        return actual+ current.price*current.qty
-    },0)
+
 
 
     // let sum = 0;
@@ -31,23 +29,10 @@ const getTotal = (arr) => {
     //     sum += (ele.price * ele.qty)
     // }
     // --------위의 포문을 reduce로 변경--------
-    //reduce 의 기본형을 알아보자
-    // array.reduce((acc,cur,index,element) => { return 결과 }, 초기값);
-    // 위와 같이 기본 틀이다.
-    // 누적값,현재값,인덱스,요소를 품고있다.
-    // 코드를 보도록하자
 
-    // const array1 = [1, 2, 3, 4];
-    // // 0 + 1 + 2 + 3 + 4
-    // const initialValue = 0;
-    // const sumWithInitial = array1.reduce(
-    // (accumulator, currentValue) => accumulator + currentValue, initialValue
-    // );
-
-    
-    // let result = arr.reduce((acc,ele,i) => {
-    //     return acc + cur;
-    // }, 0);
+    const resum = arr.reduce((total,data) => {
+        return total+ data.price*data.qty
+    },0)
 
     return resum
 
@@ -61,6 +46,35 @@ const getTotal = (arr) => {
 const Kiosk = () => {
 
     const [items, setItems] = useState([])
+    const [infos, setInfo] = useState([])
+
+    const productItemRead = (p) => {
+
+    console.log(...infos)
+    console.log( {...p, detailInfo: "아메리카노 - 진한 에스프레소에 시원한 정수물을 더하여 깔끔하고 강렬한 에스프레소를 가장 부드럽고 시원하게 즐길 수 있는 커피"})
+
+    setInfo([...infos])
+
+        if(p.pno === 1) {
+            setInfo([...infos, {...p, detailInfo: "아메리카노 - 진한 에스프레소에 시원한 정수물을 더하여 깔끔하고 강렬한 에스프레소를 가장 부드럽고 시원하게 즐길 수 있는 커피"}])
+            console.log("잘들어왔나?" , infos)
+            return
+        }
+        if(p.pno === 2) {
+            setInfo([...infos, {...p, detailInfo: "아메리카노 - 진한 에스프레소에 시원한 정수물을 더하여 깔끔하고 강렬한 에스프레소를 가장 부드럽고 시원하게 즐길 수 있는 커피"}])
+            return
+        }
+        if(p.pno === 3) {
+            setInfo([...infos, {...p, detailInfo: "아메리카노 - 진한 에스프레소에 시원한 정수물을 더하여 깔끔하고 강렬한 에스프레소를 가장 부드럽고 시원하게 즐길 수 있는 커피"}])
+            return
+        }
+        if(p.pno === 4) {
+            setInfo([...infos, {...p, detailInfo: "아메리카노 - 진한 에스프레소에 시원한 정수물을 더하여 깔끔하고 강렬한 에스프레소를 가장 부드럽고 시원하게 즐길 수 있는 커피"}])
+            return
+        }
+         
+    }
+
 
     const handleClickBuy = (product) => {
         console.log({...product, qty:1})
@@ -104,25 +118,7 @@ const Kiosk = () => {
     }
 
 
-    const productItemRead = (product) => {
-        if(product.pno === 1) {
-            setItems([...items, {...product, detailInfo: "아메리카노 - 진한 에스프레소에 시원한 정수물을 더하여 깔끔하고 강렬한 에스프레소를 가장 부드럽고 시원하게 즐길 수 있는 커피"}])
-            return
-        }
-        if(product.pno === 2) {
-            setItems([...items, {...product, detailInfo: "아메리카노 - 진한 에스프레소에 시원한 정수물을 더하여 깔끔하고 강렬한 에스프레소를 가장 부드럽고 시원하게 즐길 수 있는 커피"}])
-            return
-        }
-        if(product.pno === 3) {
-            setItems([...items, {...product, detailInfo: "아메리카노 - 진한 에스프레소에 시원한 정수물을 더하여 깔끔하고 강렬한 에스프레소를 가장 부드럽고 시원하게 즐길 수 있는 커피"}])
-            return
-        }
-        if(product.pno === 4) {
-            setItems([...items, {...product, detailInfo: "아메리카노 - 진한 에스프레소에 시원한 정수물을 더하여 깔끔하고 강렬한 에스프레소를 가장 부드럽고 시원하게 즐길 수 있는 커피"}])
-            return
-        }
-         
-    }
+
     
     
     
@@ -137,7 +133,10 @@ const Kiosk = () => {
                     <li
                         key={p.pno} 
                         className="text-2xl underline m-3 p-3 bg-white flex"
-                        onClick={() => {handleClickBuy(p)}}
+                        onClick={() => 
+                            {handleClickBuy(p); productItemRead(p);}
+                            
+                        }
                     >
                         <img className="w-20" src={p.img}/> - {p.pno} - {p.pname} - {p.price}
                     <button className="border-2 m-2 p-2 rounded-lg border-y-pink-400">BUY</button>
@@ -145,7 +144,9 @@ const Kiosk = () => {
                 </ul>
 
                 <div className="text-2xl underline m-3 p-3 bg-orange-300 flex">
-                            ㅁㄴㅇㅁㄴㅇㅁㄴㅇ
+                    {infos.map( (info , idx) => 
+                        <p key={idx} >{info.detailInfo}</p>
+                    )}
                 </div>
     
             </div>
@@ -157,7 +158,6 @@ const Kiosk = () => {
                 {items.map( (item, idx) => 
                 <li 
                     key={idx} className="border-2"
-                    onClick={() => handleClickQty(item.pno, -1)}
                 >
                     <div className="text-3xl m-4 p-4">
                         <div><img className="w-28 m-auto mb-7" src={item.img} /></div>

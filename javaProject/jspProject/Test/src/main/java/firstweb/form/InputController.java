@@ -20,11 +20,8 @@ public class InputController extends HttpServlet {
 		System.out.println("InputController.......");
 		
 		request.setAttribute("title", "계산기");
-		
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/views/input.jsp");
-
-		
 		
 		/*
 		 * RequestDispatcher dispatcher = request.getRequestDispatcher("test/date.jsp");
@@ -32,11 +29,10 @@ public class InputController extends HttpServlet {
 		
 		dispatcher.forward(request, response);
 		
-		
 		System.out.println("겟으로받음");
 		
 	}
-
+	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// 리퀘스트 사용자 요청의 한글 처리
