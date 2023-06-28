@@ -6,6 +6,12 @@ const products = [
     {pno:3, pname:'Milk Tea', price: 9000 , img:"c3.jpg"},
     {pno:4, pname:'Green Tea', price: 6000 , img:"c4.jpg"},
 
+    {pno:5, pname:'Americano', price: 7000 , img:"c1.jpg"},
+    {pno:6, pname:'Latte', price: 8000 , img:"c2.jpg"},
+    {pno:7, pname:'Milk Tea', price: 9000 , img:"c3.jpg"},
+    {pno:8, pname:'Green Tea', price: 6000 , img:"c4.jpg"},
+
+
 ]
 
 const getTotal = (arr) => {
@@ -19,11 +25,11 @@ const getTotal = (arr) => {
     },0)
 
 
-    let sum = 0;
-    // reduce으로 다시해보기
-    for(const ele of arr ){
-        sum += (ele.price * ele.qty)
-    }
+    // let sum = 0;
+    // // reduce으로 다시해보기
+    // for(const ele of arr ){
+    //     sum += (ele.price * ele.qty)
+    // }
     // --------위의 포문을 reduce로 변경--------
     //reduce 의 기본형을 알아보자
     // array.reduce((acc,cur,index,element) => { return 결과 }, 초기값);
@@ -123,14 +129,14 @@ const Kiosk = () => {
     return ( 
 
         <div className="w-full bg-green-300 flex"> 
-            <div className="w-2/3 bg-white ">
-                <div className="text-4xl font-extrabold">Products</div>
+            <div className="w-2/3 bg-stone-950 ">
+                <div className="text-4xl font-extrabold text-zinc-50">Products</div>
                 
-                <ul>
+                <ul className="flex justify-center flex-wrap">
                     {products.map( p => 
                     <li
                         key={p.pno} 
-                        className="text-2xl underline m-3 p-3 bg-orange-300 flex"
+                        className="text-2xl underline m-3 p-3 bg-white flex"
                         onClick={() => {handleClickBuy(p)}}
                     >
                         <img className="w-20" src={p.img}/> - {p.pno} - {p.pname} - {p.price}
